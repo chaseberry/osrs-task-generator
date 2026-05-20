@@ -2,7 +2,6 @@ package com.chase
 
 import com.chase.models.sources.ItemDrop
 import com.chase.models.sources.ItemSource
-import com.chase.models.sources.ItemSourceCategory
 
 fun main() {
     val testDataset = listOf(
