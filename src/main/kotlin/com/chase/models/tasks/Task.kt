@@ -10,25 +10,25 @@ sealed class Task {
 
     abstract val tier: TaskTier
 
-    class ObtainItemTask(
+    data class ObtainItemTask(
         override val tier: TaskTier,
         val itemId: Int,
         val itemSourceId: Int,
     ) : Task()
 
-    class ObtainXpTask(
+    data class ObtainXpTask(
         override val tier: TaskTier,
         val skill: OsrsSkill,
         val amount: Int,
     ) : Task()
 
-    class CompleteClueScrollsTask(
+    data class CompleteClueScrollsTask(
         override val tier: TaskTier,
         val clueType: OsrsClueScrollTier,
         val amount: Int,
     ) : Task()
 
-    class ObtainCollectionLogSlotsTask(
+    data class ObtainCollectionLogSlotsTask(
         override val tier: TaskTier,
         val amount: Int,
         val itemSourceId: Int?, // from a specific thing
