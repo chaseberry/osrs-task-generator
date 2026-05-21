@@ -8,13 +8,12 @@ abstract class Builder<T>(val name: String) {
         val items = ArrayList<T>()
 
         do {
-            print("Add $name Y/N: ")
+            items.add(newItem())
+
+            print("Add Another $name Y/N: ")
             if (!readln().first().equals('y', true)) {
                 break
             }
-
-            items.add(newItem())
-
         } while (true)
 
         return items

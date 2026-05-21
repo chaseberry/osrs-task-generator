@@ -3,6 +3,9 @@ package com.chase.utilities
 import com.chase.cli.Command
 import com.chase.cli.CommandInput
 import com.chase.cli.CommandRunner
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import java.io.File
 import kotlin.reflect.KClass
 
 fun param(name: String): String {
@@ -73,3 +76,5 @@ fun <T : Enum<T>> KClass<T>.findEnum(entry: String): T? {
 }
 
 infix fun String.runs(onInvoke: CommandRunner.() -> Unit) = Command(this, onInvoke)
+
+suspend fun readFile(path: String) = withContext(Dispatchers.IO) { File(path).readText(Charsets.UTF_8) }

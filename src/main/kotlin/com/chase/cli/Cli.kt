@@ -2,6 +2,7 @@ package com.chase.cli
 
 import com.chase.providers.ItemProvider
 import com.chase.providers.ItemSourceProvider
+import com.chase.providers.TaskProvider
 import com.chase.utilities.ItemBuilder
 import com.chase.utilities.ItemSourceBuilder
 import com.chase.utilities.param
@@ -10,6 +11,7 @@ import com.chase.utilities.runs
 class Cli(
     val itemSourceProvider: ItemSourceProvider,
     val itemProvider: ItemProvider,
+    val taskProvider: TaskProvider,
 ) : Runnable {
 
     private val commands = listOf(
