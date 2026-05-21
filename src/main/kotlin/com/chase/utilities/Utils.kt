@@ -1,5 +1,8 @@
 package com.chase.utilities
 
+import com.chase.cli.Command
+import com.chase.cli.CommandInput
+import com.chase.cli.CommandRunner
 import kotlin.reflect.KClass
 
 fun param(name: String): String {
@@ -68,3 +71,5 @@ fun <T : Enum<T>> printEnum(clazz: KClass<T>) = println(clazz.java.enumConstants
 fun <T : Enum<T>> KClass<T>.findEnum(entry: String): T? {
     return java.enumConstants.find { it.name.equals(entry, true) }
 }
+
+infix fun String.runs(onInvoke: CommandRunner.() -> Unit) = Command(this, onInvoke)
