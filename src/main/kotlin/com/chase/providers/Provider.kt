@@ -15,4 +15,6 @@ interface Provider<T : Model> {
     fun remove(id: Int)
 
     fun remove(item: T)
+
+    fun stream(): Flow<T>
 }

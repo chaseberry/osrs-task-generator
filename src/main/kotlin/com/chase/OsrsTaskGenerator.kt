@@ -32,7 +32,8 @@ class OsrsTaskGenerator(
         Cli(
             itemSourceProvider(),
             itemProvider(),
-            customTaskProvider()
+            customTaskProvider(),
+            runConfiguration,
         ).run()
     }
 
