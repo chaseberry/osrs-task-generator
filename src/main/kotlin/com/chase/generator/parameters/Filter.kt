@@ -1,21 +1,21 @@
-package com.chase.generator
+package com.chase.generator.parameters
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-sealed class GenerationFilter<T : Any> {
+sealed class Filter<T : Any> {
 
     @Serializable
     @SerialName("WhiteList")
     class WhiteList<T : Any>(
         val values: List<T>,
-    ) : GenerationFilter<T>()
+    ) : Filter<T>()
 
     @Serializable
     @SerialName("BlackList")
     class BlackList<T : Any>(
         val values: List<T>,
-    ) : GenerationFilter<T>()
+    ) : Filter<T>()
 
 }

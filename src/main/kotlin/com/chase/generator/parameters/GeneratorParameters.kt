@@ -1,4 +1,4 @@
-package com.chase.generator
+package com.chase.generator.parameters
 
 import com.chase.models.tasks.TaskTier
 import kotlinx.serialization.Serializable
@@ -11,10 +11,9 @@ class GeneratorParameters(
 
 
     // filtering options
-    val itemFilter: GenerationFilter<Int>? = null,
-    // contains tag, doesnt contain tag
-    val itemSourceFilter: GenerationFilter<Int>? = null,
-
+    val itemFilters: ItemFilter? = null,
+    val itemSourceFilter: ItemSourceFilter? = null,
+    val taskFilters: TaskFilter? = null,
 
     ) {
 }
