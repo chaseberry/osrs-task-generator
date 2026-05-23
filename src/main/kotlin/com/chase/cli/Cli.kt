@@ -24,13 +24,13 @@ class Cli(
     private val commands = listOf(
         "get" runs {
             subCommand {
-                "items" runs {
+                "item" runs {
                     println(itemProvider.get(arg<Int>(0)) ?: "Item does not exist")
                 }
-                "itemsources" runs {
+                "itemsource" runs {
                     println(itemSourceProvider.get(arg<Int>(0)) ?: "ItemSource does not exist")
                 }
-                "tasks" runs {
+                "task" runs {
                     println(taskProvider.get(arg<Int>(0)) ?: "Task does not exist")
                 }
             }
@@ -91,13 +91,13 @@ class Cli(
         },
         "remove" runs {
             subCommand {
-                "items" runs {
+                "item" runs {
                     println(itemProvider.remove(arg<Int>(0)) ?: "Item does not exist")
                 }
-                "itemsources" runs {
+                "itemsource" runs {
                     println(itemSourceProvider.get(arg<Int>(0)) ?: "ItemSource does not exist")
                 }
-                "tasks" runs {
+                "task" runs {
                     println(taskProvider.get(arg<Int>(0)) ?: "Task does not exist")
                 }
             }
