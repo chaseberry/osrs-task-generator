@@ -10,6 +10,7 @@ import com.chase.utilities.TaskBuilder
 import com.chase.utilities.param
 import com.chase.utilities.runs
 import com.chase.utilities.toFile
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.onEmpty
 import kotlinx.serialization.json.Json
 
@@ -21,20 +22,33 @@ class Cli(
 ) {
 
     private val commands = listOf(
+        "get" runs {
+            subCommand {
+                "items" runs {
+                    println(itemProvider.get(arg<Int>(0)) ?: "Item does not exist")
+                }
+                "itemsources" runs {
+                    println(itemSourceProvider.get(arg<Int>(0)) ?: "ItemSource does not exist")
+                }
+                "tasks" runs {
+                    println(taskProvider.get(arg<Int>(0)) ?: "Task does not exist")
+                }
+            }
+        },
         "search" runs {
             subCommand {
                 "items" runs {
-                    itemProvider.search(arg(0)).onEmpty {
-                        println("No items match")
-                    }.collect {
+                    itemProvider.search(arg(0)).onItemOrEmpty("No items match") {
                         println("${it.id}: ${it.name}")
                     }
                 }
                 "itemsources" runs {
-
+                    itemSourceProvider.search(arg(0)).onItemOrEmpty("No itemSources match") {
+                        println("${it.id}: ${it.name}")
+                    }
                 }
                 "tasks" runs {
-
+                    TODO("")
                 }
             }
         },
@@ -72,6 +86,19 @@ class Cli(
                             println(e.message)
                         }
                     }
+                }
+            }
+        },
+        "remove" runs {
+            subCommand {
+                "items" runs {
+                    println(itemProvider.remove(arg<Int>(0)) ?: "Item does not exist")
+                }
+                "itemsources" runs {
+                    println(itemSourceProvider.get(arg<Int>(0)) ?: "ItemSource does not exist")
+                }
+                "tasks" runs {
+                    println(taskProvider.get(arg<Int>(0)) ?: "Task does not exist")
                 }
             }
         },
@@ -121,5 +148,9 @@ class Cli(
 
         return true
     }
+
+    private suspend fun <T> Flow<T>.onItemOrEmpty(emptyMessage: String, onItem: (T) -> Unit) = onEmpty {
+        println(emptyMessage)
+    }.collect { onItem(it) }
 
 }

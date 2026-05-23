@@ -13,9 +13,9 @@ interface Provider<T : Model> {
 
     suspend fun add(item: T)
 
-    suspend fun remove(id: Int)
+    suspend fun remove(id: Int): T?
 
-    suspend fun remove(item: T)
+    suspend fun remove(item: T): T?
 
     suspend fun stream(): Flow<T>
 }

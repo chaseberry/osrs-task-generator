@@ -24,13 +24,11 @@ abstract class BaseInMemoryProvider<T : Model>(
         items.add(item)
     }
 
-    override suspend fun remove(id: Int) {
-        items.removeIf { it.id == id }
+    override suspend fun remove(id: Int): T? = items.indexOfFirst { it.id == id }.takeIf { it != -1 }?.let {
+        items.removeAt(it)
     }
 
-    override suspend fun remove(item: T) {
-        items.remove(item)
-    }
+    override suspend fun remove(item: T): T? = if (items.remove(item)) item else null
 
     override suspend fun stream(): Flow<T> = items.asFlow()
 
