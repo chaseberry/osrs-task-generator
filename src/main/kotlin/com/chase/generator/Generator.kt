@@ -26,14 +26,48 @@ class Generator(
     //  2.a for each breakdown element
     //   2.a.1 generate one task
 
-    fun generateTasks() {
-        (0 until parameters.numberOfGenerations).forEach { _ ->
+    suspend fun generateTasks() {
+        val allOptions = buildTaskOptions()
+        val usedTasks = if (parameters.allUniqueTasks) {
+            mutableListOf<Int>()
+        } else {
+            null
+        }
 
+        (0 until parameters.numberOfGenerations).forEach { _ ->
+            generateGeneration(allOptions, usedTasks).also {
+                usedTasks?.addAll(it.map { it.id })
+            }
         }
     }
 
-    private fun generateSingleTask(): Task {
+    private fun generateGeneration(options: Map<TaskTier, List<Task>>, usedTasks: List<Int>?): List<Task> {
+        val usedTasksThisGeneration = if (usedTasks != null || parameters.uniqueTasksPerGeneration) {
+            (usedTasks ?: emptyList()).toMutableList()
+        } else {
+            null
+        }
 
+        return parameters.taskBreakdownPerGeneration.map {
+            generateTask(
+                options[it] ?: throw GenerationException(parameters, "No tasks for tier $it"),
+                usedTasksThisGeneration
+            )?.also {
+                usedTasksThisGeneration?.add(it.id)
+            } ?: throw GenerationException(parameters, "No valid tasks left for tier $it")
+        }
+    }
+
+    private fun generateTask(options: List<Task>, usedTasks: List<Int>?): Task? {
+        if (usedTasks != null && usedTasks.size >= options.size) {
+            return null
+        }
+
+        if (usedTasks == null) {
+            return options.random()
+        }
+
+        return options.filter { it.id !in usedTasks }.random()
     }
 
     private suspend fun buildTaskOptions(): Map<TaskTier, List<Task>> {

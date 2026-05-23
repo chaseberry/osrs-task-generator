@@ -8,6 +8,8 @@ class GeneratorParameters(
     val numberOfGenerations: Int,
     val taskBreakdownPerGeneration: List<TaskTier>,
     val completionsPerHourModifier: Double,
+    val uniqueTasksPerGeneration: Boolean = true,
+    val allUniqueTasks: Boolean = false,
 
     // definitions
     val easyTaskHours: Int, // <=
