@@ -1,20 +1,21 @@
 package com.chase.providers
 
 import com.chase.models.Model
+import kotlinx.coroutines.flow.Flow
 
 interface Provider<T : Model> {
 
-    fun get(id: Int): T?
+    suspend fun get(id: Int): T?
 
-    fun get(ids: List<Int>): List<T>
+    suspend fun get(ids: List<Int>): List<T>
 
-    fun get(vararg ids: Int): List<T>
+    suspend fun get(vararg ids: Int): List<T>
 
-    fun add(item: T)
+    suspend fun add(item: T)
 
-    fun remove(id: Int)
+    suspend fun remove(id: Int)
 
-    fun remove(item: T)
+    suspend fun remove(item: T)
 
-    fun stream(): Flow<T>
+    suspend fun stream(): Flow<T>
 }

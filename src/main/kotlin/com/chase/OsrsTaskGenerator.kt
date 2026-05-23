@@ -63,6 +63,12 @@ class OsrsTaskGenerator(
         is RunConfiguration.DataSource.InMemory -> InMemoryCustomTaskProvider(preseed(customTaskPreseedFile))
     }
 
-    suspend inline fun <reified T> preseed(path: String): List<T> = Json.decodeFromString(readFile(path))
+    suspend inline fun <reified T> preseed(path: String): List<T> = try {
+        Json.decodeFromString(readFile(path))
+    } catch (e: Exception) {
+        println("Failed to load preseed file $path")
+        e.printStackTrace()
+        throw e
+    }
 
 }

@@ -2,10 +2,10 @@ package com.chase.cli
 
 class Command(
     private val command: String,
-    private val onInvoke: CommandRunner.() -> Unit,
+    private val onInvoke: suspend CommandRunner.() -> Unit,
 ) {
 
-    fun tryInvoke(input: CommandInput): Boolean {
+    suspend fun tryInvoke(input: CommandInput): Boolean {
         if (input.command != command) {
             return false
         }

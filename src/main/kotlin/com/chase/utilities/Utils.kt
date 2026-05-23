@@ -4,8 +4,12 @@ import com.chase.cli.Command
 import com.chase.cli.CommandInput
 import com.chase.cli.CommandRunner
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.util.regex.Pattern
+import java.util.regex.PatternSyntaxException
 import kotlin.reflect.KClass
 
 fun param(name: String): String {
@@ -75,6 +79,33 @@ fun <T : Enum<T>> KClass<T>.findEnum(entry: String): T? {
     return java.enumConstants.find { it.name.equals(entry, true) }
 }
 
-infix fun String.runs(onInvoke: CommandRunner.() -> Unit) = Command(this, onInvoke)
+infix fun String.runs(onInvoke: suspend CommandRunner.() -> Unit) = Command(this, onInvoke)
 
-suspend fun readFile(path: String) = withContext(Dispatchers.IO) { File(path).readText(Charsets.UTF_8) }
+suspend fun <T> io(block: suspend () -> T): T = withContext(Dispatchers.IO) { block() }
+
+suspend fun readFile(path: String) = io { File(path).readText(Charsets.UTF_8) }
+
+suspend fun <T> Flow<T>.toFile(path: String, convert: (T) -> String): Unit = File(path).bufferedWriter().use { file ->
+    io { file.write("[") }
+    var first = true
+    collect {
+        io {
+            if (!first) {
+                file.write(",")
+            }
+            file.write(convert(it))
+        }
+        first = false
+    }
+
+    io {
+        file.write("]")
+        file.close()
+    }
+}
+
+fun String.regexify() = try{
+    Regex(this, RegexOption.IGNORE_CASE)
+} catch (e: PatternSyntaxException) {
+    Regex(Pattern.quote(this), RegexOption.IGNORE_CASE)
+}

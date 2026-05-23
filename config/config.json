@@ -1,0 +1,9 @@
+{
+  "runMode": "Cli",
+  "dataSource": {
+    "type": "InMemory",
+    "itemPreseedFile": "./config/items.json",
+    "itemSourcePreseedFile": "./config/itemSources.json",
+    "customTaskPreseedFile": "./config/customTasks.json"
+  }
+}

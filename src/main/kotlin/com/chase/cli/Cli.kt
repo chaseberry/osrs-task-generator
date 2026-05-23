@@ -9,19 +9,26 @@ import com.chase.utilities.ItemSourceBuilder
 import com.chase.utilities.TaskBuilder
 import com.chase.utilities.param
 import com.chase.utilities.runs
+import com.chase.utilities.toFile
+import kotlinx.coroutines.flow.onEmpty
+import kotlinx.serialization.json.Json
 
 class Cli(
     val itemSourceProvider: ItemSourceProvider,
     val itemProvider: ItemProvider,
     val taskProvider: TaskProvider,
     val runConfiguration: RunConfiguration,
-) : Runnable {
+) {
 
     private val commands = listOf(
         "search" runs {
             subCommand {
                 "items" runs {
-                    val search = arg<String>(0)
+                    itemProvider.search(arg(0)).onEmpty {
+                        println("No items match")
+                    }.collect {
+                        println("${it.id}: ${it.name}")
+                    }
                 }
                 "itemsources" runs {
 
@@ -73,19 +80,31 @@ class Cli(
                 error("Cannot export data unless the data source is in memory.")
             }
 
-            itemProvider
+            println("Exporting Items...")
+            itemProvider.stream().toFile(runConfiguration.dataSource.itemPreseedFile) {
+                Json.encodeToString(it)
+            }
+
+            println("Exporting Item Sources...")
+            itemSourceProvider.stream().toFile(runConfiguration.dataSource.itemSourcePreseedFile) {
+                Json.encodeToString(it)
+            }
+
+            println("Exporting Tasks...")
+            taskProvider.stream().toFile(runConfiguration.dataSource.customTaskPreseedFile) {
+                Json.encodeToString(it)
+            }
         },
         "generate" runs {
 
         }
     )
 
-    override fun run() {
+    suspend fun run() {
         while (loop());
-
     }
 
-    private fun loop(): Boolean {
+    private suspend fun loop(): Boolean {
         val input = CommandInput.parse(param("command"))
         if (input.command == "quit") {
             return false

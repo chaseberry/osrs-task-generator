@@ -5,5 +5,5 @@ import com.chase.providers.TaskProvider
 
 class InMemoryCustomTaskProvider(
     items: List<Task>,
-) : TaskProvider, BaseInMemoryProvider<Task>(items) {
+) : TaskProvider, BaseInMemoryProvider<Task>(items.toMutableList()) {
 }

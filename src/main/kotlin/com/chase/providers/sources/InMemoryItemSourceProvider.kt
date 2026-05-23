@@ -5,5 +5,5 @@ import com.chase.providers.ItemSourceProvider
 
 class InMemoryItemSourceProvider(
     itemSources: List<ItemSource>,
-) : ItemSourceProvider, BaseInMemoryProvider<ItemSource>(itemSources) {
+) : ItemSourceProvider, BaseInMemoryProvider<ItemSource>(itemSources.toMutableList()) {
 }
