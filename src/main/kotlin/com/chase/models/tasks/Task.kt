@@ -45,4 +45,11 @@ sealed class Task : Model {
         val itemSourceId: Int?, // from a specific thing
         val itemSourceType: ItemSourceType?, // from a general category
     ) : Task()
+
+    fun withNewId(newId: Int): Task = when (this) {
+        is ObtainItemTask -> copy(id = newId)
+        is ObtainXpTask -> copy(id = newId)
+        is CompleteClueScrollsTask -> copy(id = newId)
+        is ObtainCollectionLogSlotsTask -> copy(id = newId)
+    }
 }

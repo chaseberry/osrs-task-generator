@@ -6,8 +6,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 class TaskFilter(
-    val taskFilter: Filter<Int>? = null,
-    val tierFilter: Filter<TaskTier>? = null,
-    val typeFilter: Filter<TaskType>? = null,
+    val tasks: Filter<Int>? = null,
+    val tiers: Filter<TaskTier>? = null,
+    val types: Filter<TaskType>? = null,
 ) {
 }

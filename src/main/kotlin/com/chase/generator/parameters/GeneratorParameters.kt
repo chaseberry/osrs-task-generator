@@ -9,6 +9,11 @@ class GeneratorParameters(
     val taskBreakdownPerGeneration: List<TaskTier>,
     val completionsPerHourModifier: Double,
 
+    // definitions
+    val easyTaskHours: Int, // <=
+    val mediumTaskHours: Int, // <=
+    val hardTaskHours: Int, // <=
+    val eliteTaskHours: Int? = null,
 
     // filtering options
     val itemFilters: ItemFilter? = null,
