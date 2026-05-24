@@ -6,9 +6,12 @@ import com.chase.models.osrs.OsrsSkill
 import com.chase.models.sources.ItemSourceType
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 @Serializable
-sealed class Task : Model {
+sealed class Task(
+    val type: TaskType,
+) : Model {
 
     abstract val tier: TaskTier
     abstract override val id: Int
@@ -19,7 +22,7 @@ sealed class Task : Model {
         override val tier: TaskTier,
         val itemId: Int,
         val itemSourceId: Int,
-    ) : Task()
+    ) : Task(TaskType.ObtainItem) {}
 
     @SerialName("ObtainXp")
     data class ObtainXpTask(
@@ -27,7 +30,7 @@ sealed class Task : Model {
         override val tier: TaskTier,
         val skill: OsrsSkill,
         val amount: Int,
-    ) : Task()
+    ) : Task(TaskType.ObtainXp)
 
     @SerialName("CompleteClueScrolls")
     data class CompleteClueScrollsTask(
@@ -35,7 +38,7 @@ sealed class Task : Model {
         override val tier: TaskTier,
         val clueType: OsrsClueScrollTier,
         val amount: Int,
-    ) : Task()
+    ) : Task(TaskType.CompleteClueScrolls)
 
     @SerialName("ObtainCollectionLogSlots")
     data class ObtainCollectionLogSlotsTask(
@@ -44,7 +47,7 @@ sealed class Task : Model {
         val amount: Int,
         val itemSourceId: Int?, // from a specific thing
         val itemSourceType: ItemSourceType?, // from a general category
-    ) : Task()
+    ) : Task(TaskType.CompleteClueScrolls)
 
     fun withNewId(newId: Int): Task = when (this) {
         is ObtainItemTask -> copy(id = newId)
