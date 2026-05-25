@@ -23,7 +23,10 @@ class ItemSourceBuilder(
             id = npcLookup.lookupId(this) ?: param("id") { toIntOrNull() },
             name = this,
             type = enumParam("type", ItemSourceType::class),
-            drops = ItemDropBuilder(itemProvider).getItems(),
+            drops = run {
+                println("Item Drops: ")
+                ItemDropBuilder(itemProvider).getItems()
+            },
             rollsPerHour = param("rolls per hour") { toIntOrNull()?.takeIf { it > 0 } },
             tags = listEnum("tags", ItemSourceTag::class)
         )
