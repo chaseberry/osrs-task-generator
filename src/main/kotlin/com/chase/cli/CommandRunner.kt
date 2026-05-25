@@ -33,6 +33,7 @@ class CommandRunner(
         return when (clazz) {
             Int::class -> arg.toIntOrNull()
             Double::class -> arg.toDoubleOrNull()
+            String::class -> arg
             else -> null
         } as? T
     }
