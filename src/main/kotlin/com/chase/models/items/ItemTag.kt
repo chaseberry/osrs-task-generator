@@ -23,4 +23,5 @@ enum class ItemTag {
     Tukeken,
     Elidinis,
     Component,
+    Upgrade,
 }
