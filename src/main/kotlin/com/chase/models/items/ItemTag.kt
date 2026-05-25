@@ -22,4 +22,5 @@ enum class ItemTag {
     Seren,
     Tukeken,
     Elidinis,
+    Component,
 }
