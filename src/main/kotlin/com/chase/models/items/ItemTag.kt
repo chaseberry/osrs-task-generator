@@ -11,5 +11,6 @@ enum class ItemTag {
     Armor,
     Jar,
     Cosmetic,
-
+    Barrows,
+    MoonsOfPeril,
 }

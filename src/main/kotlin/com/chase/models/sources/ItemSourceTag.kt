@@ -11,4 +11,7 @@ enum class ItemSourceTag {
     HighLevel,
     DT2,
     ProfitBoss,
+    Barrows,
+    Dks,
+    MoonsOfPeril,
 }
