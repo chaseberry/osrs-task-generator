@@ -52,7 +52,7 @@ fun <T : Enum<T>> enumParam(name: String, clazz: KClass<T>): T {
         when (val r = readln().takeIf { it.isNotBlank() }) {
             "?" -> printEnum(clazz)
             null -> continue
-            else -> clazz.findEnum(r)?.let { return it }
+            else -> clazz.findEnum(r)?.let { return it } ?: println("Failed to find matching value...")
         }
     } while (true)
 }
@@ -66,7 +66,7 @@ fun <T : Enum<T>> listEnum(name: String, clazz: KClass<T>): List<T> {
         when (val r = readln().takeIf { it.isNotBlank() }) {
             "?" -> printEnum(clazz)
             null -> break
-            else -> clazz.findEnum(r)?.let { items.add(it) }
+            else -> clazz.findEnum(r)?.let { items.add(it) } ?: println("Failed to find matching value...")
         }
     } while (true)
 
@@ -104,7 +104,7 @@ suspend fun <T> Flow<T>.toFile(path: String, convert: (T) -> String): Unit = Fil
     }
 }
 
-fun String.regexify() = try{
+fun String.regexify() = try {
     Regex(this, RegexOption.IGNORE_CASE)
 } catch (e: PatternSyntaxException) {
     Regex(Pattern.quote(this), RegexOption.IGNORE_CASE)

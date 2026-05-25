@@ -13,4 +13,13 @@ enum class ItemTag {
     Cosmetic,
     Barrows,
     MoonsOfPeril,
+    Guthix,
+    Saradomin,
+    Zamorak,
+    Armadyl,
+    Bandos,
+    Zaros,
+    Seren,
+    Tukeken,
+    Elidinis,
 }
