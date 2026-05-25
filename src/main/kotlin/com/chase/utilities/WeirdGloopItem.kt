@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 class WeirdGloopItem(
-    val id: Int,
-    val name: String,
-    val configName: String,
-)
+    override val id: Int,
+    override val name: String,
+    override val configName: String,
+): WeirdGloopEntity
 /*
 {
     "id":0,
