@@ -28,7 +28,11 @@ class Cli(
                     println(itemProvider.get(arg<Int>(0)) ?: "Item does not exist")
                 }
                 "itemsource" runs {
-                    println(itemSourceProvider.get(arg<Int>(0)) ?: "ItemSource does not exist")
+                    val item = itemSourceProvider.get(arg<Int>(0))
+                    println(item?.copy(drops = emptyList()) ?: "ItemSource does not exist")
+                    item?.drops?.forEach {
+                        println("${itemProvider.get(it.itemId)?.name ?: "unknown item"} at 1 / ${it.dropRate}")
+                    }
                 }
                 "task" runs {
                     println(taskProvider.get(arg<Int>(0)) ?: "Task does not exist")
