@@ -19,7 +19,7 @@ class ItemBuilder : Builder<Item>("Item") {
         }
     }
 
-    override fun newItem(): Item = with(param("name")) {
+    override suspend fun newItem(): Item = with(param("name")) {
         Item(
             name = this,
             id = lookupItemId(this) ?: param("id") { toIntOrNull() },

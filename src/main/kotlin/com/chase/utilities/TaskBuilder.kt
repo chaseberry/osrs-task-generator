@@ -9,7 +9,7 @@ import com.chase.models.tasks.TaskType
 
 class TaskBuilder : Builder<Task>("Task") {
 
-    override fun newItem(): Task = when (enumParam("type", TaskType::class)) {
+    override suspend fun newItem(): Task = when (enumParam("type", TaskType::class)) {
         TaskType.ObtainItem -> Task.ObtainItemTask(
             id = param("id") { toIntOrNull() },
             tier = enumParam("tier", TaskTier::class),

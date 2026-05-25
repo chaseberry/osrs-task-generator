@@ -66,7 +66,7 @@ class Cli(
                     }
                 }
                 "itemsources" runs {
-                    ItemSourceBuilder().getItems().forEach {
+                    ItemSourceBuilder(itemProvider).getItems().forEach {
                         try {
                             itemSourceProvider.add(it)
                             println("Added $it")

@@ -3,6 +3,7 @@ package com.chase.utilities
 import com.chase.models.sources.ItemSource
 import com.chase.models.sources.ItemSourceTag
 import com.chase.models.sources.ItemSourceType
+import com.chase.providers.ItemProvider
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.request.get
@@ -10,7 +11,9 @@ import io.ktor.client.statement.bodyAsText
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 
-class ItemSourceBuilder : Builder<ItemSource>("ItemSource") {
+class ItemSourceBuilder(
+    val itemProvider: ItemProvider,
+) : Builder<ItemSource>("ItemSource") {
 
     private val npcLookup: List<WeirdGloopNpc>?
 
@@ -20,12 +23,12 @@ class ItemSourceBuilder : Builder<ItemSource>("ItemSource") {
         }
     }
 
-    override fun newItem(): ItemSource = with(param("name")) {
+    override suspend fun newItem(): ItemSource = with(param("name")) {
         ItemSource(
             id = lookupNpcId(this) ?: param("id") { toIntOrNull() },
             name = this,
             type = enumParam("type", ItemSourceType::class),
-            drops = ItemDropBuilder().getItems(),
+            drops = ItemDropBuilder(itemProvider).getItems(),
             rollsPerHour = param("rolls per hour") { toIntOrNull()?.takeIf { it > 0 } },
             tags = listEnum("tags", ItemSourceTag::class)
         )
