@@ -1,1 +1,1082 @@
-[{"id":-1,"name":"Barrows brothers","type":"Boss","drops":[{"itemId":4708,"dropRate":350},{"itemId":4710,"dropRate":350},{"itemId":4712,"dropRate":350},{"itemId":4714,"dropRate":350},{"itemId":4716,"dropRate":350},{"itemId":4718,"dropRate":350},{"itemId":4720,"dropRate":350},{"itemId":4722,"dropRate":350},{"itemId":4724,"dropRate":350},{"itemId":4726,"dropRate":350},{"itemId":4728,"dropRate":350},{"itemId":4730,"dropRate":350},{"itemId":4732,"dropRate":350},{"itemId":4734,"dropRate":350},{"itemId":4736,"dropRate":350},{"itemId":4738,"dropRate":350},{"itemId":4745,"dropRate":350},{"itemId":4747,"dropRate":350},{"itemId":4749,"dropRate":350},{"itemId":4751,"dropRate":350},{"itemId":4753,"dropRate":350},{"itemId":4755,"dropRate":350},{"itemId":4757,"dropRate":350},{"itemId":4759,"dropRate":350}],"rollsPerHour":22,"tags":["Barrows"]},{"id":7222,"name":"Scurrius","type":"Boss","drops":[{"itemId":28801,"dropRate":3000},{"itemId":28798,"dropRate":33},{"itemId":10976,"dropRate":400},{"itemId":10977,"dropRate":5013}],"rollsPerHour":70,"tags":["EarlyGame"]},{"id":5779,"name":"Giant Mole","type":"Boss","drops":[{"itemId":10976,"dropRate":400},{"itemId":12646,"dropRate":3000},{"itemId":10977,"dropRate":5013}],"rollsPerHour":125,"tags":["MidGame"]},{"id":7806,"name":"Deranged archaeologist","type":"DemiBoss","drops":[{"itemId":30895,"dropRate":44},{"itemId":10976,"dropRate":65}],"rollsPerHour":80,"tags":["EarlyGame"]},{"id":2265,"name":"Dagannoth Supreme","type":"Boss","drops":[{"itemId":12643,"dropRate":5000},{"itemId":6733,"dropRate":128},{"itemId":6739,"dropRate":128},{"itemId":6724,"dropRate":128}],"rollsPerHour":105,"tags":["Dks","MidGame"]},{"id":2267,"name":"Dagannoth Rex","type":"Boss","drops":[{"itemId":12645,"dropRate":5000},{"itemId":6737,"dropRate":128},{"itemId":6735,"dropRate":128},{"itemId":6739,"dropRate":128}],"rollsPerHour":105,"tags":["Dks","MidGame"]},{"id":2266,"name":"Dagannoth Prime","type":"Boss","drops":[{"itemId":12644,"dropRate":5000},{"itemId":6731,"dropRate":128},{"itemId":6739,"dropRate":128},{"itemId":6562,"dropRate":128}],"rollsPerHour":105,"tags":["Dks","MidGame"]},{"id":8713,"name":"Sarachnis","type":"Boss","drops":[{"itemId":23495,"dropRate":3000},{"itemId":23525,"dropRate":2000},{"itemId":23517,"dropRate":20},{"itemId":23528,"dropRate":384},{"itemId":33133,"dropRate":50}],"rollsPerHour":110,"tags":["MidGame","EarlyGame"]},{"id":-2,"name":"Moons of Peril","type":"Boss","drops":[{"itemId":29000,"dropRate":224},{"itemId":29010,"dropRate":224},{"itemId":29004,"dropRate":224},{"itemId":29007,"dropRate":224},{"itemId":28997,"dropRate":224},{"itemId":29028,"dropRate":224},{"itemId":29022,"dropRate":224},{"itemId":29025,"dropRate":224},{"itemId":28988,"dropRate":224},{"itemId":29019,"dropRate":224},{"itemId":29013,"dropRate":224},{"itemId":29016,"dropRate":224}],"rollsPerHour":18,"tags":["MidGame","MoonsOfPeril"]},{"id":963,"name":"Kalphite Queen","type":"Boss","drops":[{"itemId":12647,"dropRate":3000},{"itemId":7981,"dropRate":128},{"itemId":12885,"dropRate":2000},{"itemId":7158,"dropRate":256},{"itemId":3140,"dropRate":128},{"itemId":11920,"dropRate":400}],"rollsPerHour":55,"tags":[]},{"id":3162,"name":"Kree'arra","type":"Boss","drops":[{"itemId":12649,"dropRate":5000},{"itemId":11826,"dropRate":381},{"itemId":11828,"dropRate":381},{"itemId":11830,"dropRate":381},{"itemId":11810,"dropRate":508},{"itemId":11818,"dropRate":305},{"itemId":11820,"dropRate":305},{"itemId":11822,"dropRate":305}],"rollsPerHour":40,"tags":["GodWarsDungeon"]},{"id":2205,"name":"Commander Zilyana","type":"Boss","drops":[{"itemId":12651,"dropRate":5000},{"itemId":11838,"dropRate":127},{"itemId":13256,"dropRate":254},{"itemId":11785,"dropRate":508},{"itemId":11814,"dropRate":508},{"itemId":11818,"dropRate":305},{"itemId":11820,"dropRate":305},{"itemId":11822,"dropRate":305}],"rollsPerHour":60,"tags":["GodWarsDungeon"]},{"id":2215,"name":"General Graardor","type":"Boss","drops":[{"itemId":12650,"dropRate":5000},{"itemId":11832,"dropRate":381},{"itemId":11834,"dropRate":381},{"itemId":11836,"dropRate":381},{"itemId":11812,"dropRate":508},{"itemId":11818,"dropRate":305},{"itemId":11820,"dropRate":305},{"itemId":11822,"dropRate":305}],"rollsPerHour":58,"tags":["GodWarsDungeon"]},{"id":3129,"name":"K'ril Tsutsaroth","type":"Boss","drops":[{"itemId":12652,"dropRate":5000},{"itemId":11787,"dropRate":127},{"itemId":11824,"dropRate":127},{"itemId":11791,"dropRate":508},{"itemId":11816,"dropRate":508},{"itemId":11818,"dropRate":305},{"itemId":11820,"dropRate":305},{"itemId":11822,"dropRate":305}],"rollsPerHour":65,"tags":["GodWarsDungeon"]},{"id":14009,"name":"The Hueycoatl","type":"Boss","drops":[{"itemId":30152,"dropRate":400},{"itemId":30085,"dropRate":29},{"itemId":30066,"dropRate":90},{"itemId":30070,"dropRate":105}],"rollsPerHour":20,"tags":["Draconic","MidGame"]},{"id":319,"name":"Corporeal Beast","type":"Boss","drops":[{"itemId":12816,"dropRate":5000},{"itemId":25521,"dropRate":1000},{"itemId":12833,"dropRate":171},{"itemId":12829,"dropRate":64},{"itemId":12819,"dropRate":4095},{"itemId":12827,"dropRate":1365},{"itemId":12823,"dropRate":1365}],"rollsPerHour":60,"tags":[]},{"id":11278,"name":"Nex","type":"Boss","drops":[{"itemId":26348,"dropRate":500},{"itemId":26235,"dropRate":172},{"itemId":26372,"dropRate":258},{"itemId":26370,"dropRate":516},{"itemId":26376,"dropRate":258},{"itemId":26378,"dropRate":258},{"itemId":26380,"dropRate":258}],"rollsPerHour":23,"tags":["GodWarsDungeon"]},{"id":6619,"name":"Chaos Fanatic","type":"DemiBoss","drops":[{"itemId":11995,"dropRate":1000},{"itemId":11928,"dropRate":256},{"itemId":11931,"dropRate":256}],"rollsPerHour":100,"tags":["Wilderness","MidGame"]},{"id":6618,"name":"Crazy archaeologist","type":"DemiBoss","drops":[{"itemId":11929,"dropRate":256},{"itemId":11932,"dropRate":256},{"itemId":11990,"dropRate":128}],"rollsPerHour":75,"tags":["Wilderness","MidGame"]},{"id":6615,"name":"Scorpia","type":"DemiBoss","drops":[{"itemId":11930,"dropRate":256},{"itemId":11933,"dropRate":256},{"itemId":13181,"dropRate":2016}],"rollsPerHour":130,"tags":["Wilderness","MidGame"]},{"id":239,"name":"King Black Dragon","type":"Boss","drops":[{"itemId":12653,"dropRate":3000},{"itemId":7980,"dropRate":128},{"itemId":11920,"dropRate":1000},{"itemId":11286,"dropRate":5000}],"rollsPerHour":130,"tags":["Wilderness","Draconic"]},{"id":2054,"name":"Chaos Elemental","type":"Boss","drops":[{"itemId":11995,"dropRate":300},{"itemId":11920,"dropRate":256},{"itemId":7158,"dropRate":64}],"rollsPerHour":120,"tags":["Wilderness"]},{"id":11246,"name":"Revenant maledictus","type":"Boss","drops":[{"itemId":22557,"dropRate":7334},{"itemId":22547,"dropRate":14667},{"itemId":22552,"dropRate":14667},{"itemId":22542,"dropRate":14667},{"itemId":21807,"dropRate":1333},{"itemId":21810,"dropRate":2000},{"itemId":21813,"dropRate":4000},{"itemId":22299,"dropRate":8000},{"itemId":22302,"dropRate":8000},{"itemId":22305,"dropRate":8000},{"itemId":21804,"dropRate":2667}],"rollsPerHour":100,"tags":["Wilderness"]},{"id":11993,"name":"Calvar'ion","type":"Boss","drops":[{"itemId":13179,"dropRate":2800},{"itemId":7158,"dropRate":358},{"itemId":11920,"dropRate":358},{"itemId":27673,"dropRate":618},{"itemId":12601,"dropRate":716},{"itemId":27684,"dropRate":912}],"rollsPerHour":55,"tags":["SingleCombat","Wilderness"]},{"id":6611,"name":"Vet'ion","type":"Boss","drops":[{"itemId":13179,"dropRate":1500},{"itemId":27673,"dropRate":196},{"itemId":7158,"dropRate":256},{"itemId":11920,"dropRate":256},{"itemId":27684,"dropRate":360},{"itemId":12601,"dropRate":512}],"rollsPerHour":50,"tags":["MultiCombat","Wilderness"]},{"id":11998,"name":"Spindel","type":"Boss","drops":[{"itemId":13177,"dropRate":2800},{"itemId":7158,"dropRate":358},{"itemId":11920,"dropRate":358},{"itemId":27670,"dropRate":618},{"itemId":12605,"dropRate":716},{"itemId":27687,"dropRate":912}],"rollsPerHour":55,"tags":["Wilderness","SingleCombat"]},{"id":6610,"name":"Venenatis","type":"Boss","drops":[{"itemId":13177,"dropRate":1500},{"itemId":27670,"dropRate":196},{"itemId":7158,"dropRate":256},{"itemId":11920,"dropRate":256},{"itemId":27687,"dropRate":360},{"itemId":12605,"dropRate":512}],"rollsPerHour":80,"tags":["Wilderness","MultiCombat"]},{"id":11992,"name":"Artio","type":"Boss","drops":[{"itemId":13178,"dropRate":2800},{"itemId":7158,"dropRate":358},{"itemId":11920,"dropRate":358},{"itemId":27667,"dropRate":618},{"itemId":12603,"dropRate":716},{"itemId":27681,"dropRate":912}],"rollsPerHour":60,"tags":["SingleCombat","Wilderness"]},{"id":6609,"name":"Callisto","type":"Boss","drops":[{"itemId":13178,"dropRate":1500},{"itemId":27667,"dropRate":196},{"itemId":7158,"dropRate":256},{"itemId":11920,"dropRate":256},{"itemId":27681,"dropRate":360},{"itemId":12603,"dropRate":512}],"rollsPerHour":142,"tags":["MultiCombat","Wilderness"]}]
+[
+  {
+    "id": -1,
+    "name": "Barrows brothers",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 4708,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4710,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4712,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4714,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4716,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4718,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4720,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4722,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4724,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4726,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4728,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4730,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4732,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4734,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4736,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4738,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4745,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4747,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4749,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4751,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4753,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4755,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4757,
+        "dropRate": 350
+      },
+      {
+        "itemId": 4759,
+        "dropRate": 350
+      }
+    ],
+    "rollsPerHour": 22,
+    "tags": [
+      "Barrows",
+      "SingleCombat"
+    ]
+  },
+  {
+    "id": 7222,
+    "name": "Scurrius",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 28801,
+        "dropRate": 3000
+      },
+      {
+        "itemId": 28798,
+        "dropRate": 33
+      },
+      {
+        "itemId": 10976,
+        "dropRate": 400
+      },
+      {
+        "itemId": 10977,
+        "dropRate": 5013
+      }
+    ],
+    "rollsPerHour": 70,
+    "tags": [
+      "EarlyGame",
+      "SingleCombat",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 5779,
+    "name": "Giant Mole",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 10976,
+        "dropRate": 400
+      },
+      {
+        "itemId": 12646,
+        "dropRate": 3000
+      },
+      {
+        "itemId": 10977,
+        "dropRate": 5013
+      }
+    ],
+    "rollsPerHour": 125,
+    "tags": [
+      "MidGame",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 7806,
+    "name": "Deranged archaeologist",
+    "type": "DemiBoss",
+    "drops": [
+      {
+        "itemId": 30895,
+        "dropRate": 44
+      },
+      {
+        "itemId": 10976,
+        "dropRate": 65
+      }
+    ],
+    "rollsPerHour": 80,
+    "tags": [
+      "EarlyGame",
+      "SingleCombat"
+    ]
+  },
+  {
+    "id": 2265,
+    "name": "Dagannoth Supreme",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 12643,
+        "dropRate": 5000
+      },
+      {
+        "itemId": 6733,
+        "dropRate": 128
+      },
+      {
+        "itemId": 6739,
+        "dropRate": 128
+      },
+      {
+        "itemId": 6724,
+        "dropRate": 128
+      }
+    ],
+    "rollsPerHour": 105,
+    "tags": [
+      "Dks",
+      "MidGame",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 2267,
+    "name": "Dagannoth Rex",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 12645,
+        "dropRate": 5000
+      },
+      {
+        "itemId": 6737,
+        "dropRate": 128
+      },
+      {
+        "itemId": 6735,
+        "dropRate": 128
+      },
+      {
+        "itemId": 6739,
+        "dropRate": 128
+      }
+    ],
+    "rollsPerHour": 105,
+    "tags": [
+      "Dks",
+      "MidGame",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 2266,
+    "name": "Dagannoth Prime",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 12644,
+        "dropRate": 5000
+      },
+      {
+        "itemId": 6731,
+        "dropRate": 128
+      },
+      {
+        "itemId": 6739,
+        "dropRate": 128
+      },
+      {
+        "itemId": 6562,
+        "dropRate": 128
+      }
+    ],
+    "rollsPerHour": 105,
+    "tags": [
+      "Dks",
+      "MidGame",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 8713,
+    "name": "Sarachnis",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 23495,
+        "dropRate": 3000
+      },
+      {
+        "itemId": 23525,
+        "dropRate": 2000
+      },
+      {
+        "itemId": 23517,
+        "dropRate": 20
+      },
+      {
+        "itemId": 23528,
+        "dropRate": 384
+      },
+      {
+        "itemId": 33133,
+        "dropRate": 50
+      }
+    ],
+    "rollsPerHour": 110,
+    "tags": [
+      "MidGame",
+      "EarlyGame",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": -2,
+    "name": "Moons of Peril",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 29000,
+        "dropRate": 224
+      },
+      {
+        "itemId": 29010,
+        "dropRate": 224
+      },
+      {
+        "itemId": 29004,
+        "dropRate": 224
+      },
+      {
+        "itemId": 29007,
+        "dropRate": 224
+      },
+      {
+        "itemId": 28997,
+        "dropRate": 224
+      },
+      {
+        "itemId": 29028,
+        "dropRate": 224
+      },
+      {
+        "itemId": 29022,
+        "dropRate": 224
+      },
+      {
+        "itemId": 29025,
+        "dropRate": 224
+      },
+      {
+        "itemId": 28988,
+        "dropRate": 224
+      },
+      {
+        "itemId": 29019,
+        "dropRate": 224
+      },
+      {
+        "itemId": 29013,
+        "dropRate": 224
+      },
+      {
+        "itemId": 29016,
+        "dropRate": 224
+      }
+    ],
+    "rollsPerHour": 18,
+    "tags": [
+      "MidGame",
+      "MoonsOfPeril",
+      "SingleCombat"
+    ]
+  },
+  {
+    "id": 963,
+    "name": "Kalphite Queen",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 12647,
+        "dropRate": 3000
+      },
+      {
+        "itemId": 7981,
+        "dropRate": 128
+      },
+      {
+        "itemId": 12885,
+        "dropRate": 2000
+      },
+      {
+        "itemId": 7158,
+        "dropRate": 256
+      },
+      {
+        "itemId": 3140,
+        "dropRate": 128
+      },
+      {
+        "itemId": 11920,
+        "dropRate": 400
+      }
+    ],
+    "rollsPerHour": 55,
+    "tags": [
+    "MultiCombat"
+    ]
+  },
+  {
+    "id": 3162,
+    "name": "Kree'arra",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 12649,
+        "dropRate": 5000
+      },
+      {
+        "itemId": 11826,
+        "dropRate": 381
+      },
+      {
+        "itemId": 11828,
+        "dropRate": 381
+      },
+      {
+        "itemId": 11830,
+        "dropRate": 381
+      },
+      {
+        "itemId": 11810,
+        "dropRate": 508
+      },
+      {
+        "itemId": 11818,
+        "dropRate": 305
+      },
+      {
+        "itemId": 11820,
+        "dropRate": 305
+      },
+      {
+        "itemId": 11822,
+        "dropRate": 305
+      }
+    ],
+    "rollsPerHour": 40,
+    "tags": [
+      "GodWarsDungeon",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 2205,
+    "name": "Commander Zilyana",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 12651,
+        "dropRate": 5000
+      },
+      {
+        "itemId": 11838,
+        "dropRate": 127
+      },
+      {
+        "itemId": 13256,
+        "dropRate": 254
+      },
+      {
+        "itemId": 11785,
+        "dropRate": 508
+      },
+      {
+        "itemId": 11814,
+        "dropRate": 508
+      },
+      {
+        "itemId": 11818,
+        "dropRate": 305
+      },
+      {
+        "itemId": 11820,
+        "dropRate": 305
+      },
+      {
+        "itemId": 11822,
+        "dropRate": 305
+      }
+    ],
+    "rollsPerHour": 60,
+    "tags": [
+      "GodWarsDungeon",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 2215,
+    "name": "General Graardor",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 12650,
+        "dropRate": 5000
+      },
+      {
+        "itemId": 11832,
+        "dropRate": 381
+      },
+      {
+        "itemId": 11834,
+        "dropRate": 381
+      },
+      {
+        "itemId": 11836,
+        "dropRate": 381
+      },
+      {
+        "itemId": 11812,
+        "dropRate": 508
+      },
+      {
+        "itemId": 11818,
+        "dropRate": 305
+      },
+      {
+        "itemId": 11820,
+        "dropRate": 305
+      },
+      {
+        "itemId": 11822,
+        "dropRate": 305
+      }
+    ],
+    "rollsPerHour": 58,
+    "tags": [
+      "GodWarsDungeon",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 3129,
+    "name": "K'ril Tsutsaroth",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 12652,
+        "dropRate": 5000
+      },
+      {
+        "itemId": 11787,
+        "dropRate": 127
+      },
+      {
+        "itemId": 11824,
+        "dropRate": 127
+      },
+      {
+        "itemId": 11791,
+        "dropRate": 508
+      },
+      {
+        "itemId": 11816,
+        "dropRate": 508
+      },
+      {
+        "itemId": 11818,
+        "dropRate": 305
+      },
+      {
+        "itemId": 11820,
+        "dropRate": 305
+      },
+      {
+        "itemId": 11822,
+        "dropRate": 305
+      }
+    ],
+    "rollsPerHour": 65,
+    "tags": [
+      "GodWarsDungeon",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 14009,
+    "name": "The Hueycoatl",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 30152,
+        "dropRate": 400
+      },
+      {
+        "itemId": 30085,
+        "dropRate": 29
+      },
+      {
+        "itemId": 30066,
+        "dropRate": 90
+      },
+      {
+        "itemId": 30070,
+        "dropRate": 105
+      }
+    ],
+    "rollsPerHour": 20,
+    "tags": [
+      "Draconic",
+      "MidGame",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 319,
+    "name": "Corporeal Beast",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 12816,
+        "dropRate": 5000
+      },
+      {
+        "itemId": 25521,
+        "dropRate": 1000
+      },
+      {
+        "itemId": 12833,
+        "dropRate": 171
+      },
+      {
+        "itemId": 12829,
+        "dropRate": 64
+      },
+      {
+        "itemId": 12819,
+        "dropRate": 4095
+      },
+      {
+        "itemId": 12827,
+        "dropRate": 1365
+      },
+      {
+        "itemId": 12823,
+        "dropRate": 1365
+      }
+    ],
+    "rollsPerHour": 60,
+    "tags": [
+    "MultiCombat"]
+  },
+  {
+    "id": 11278,
+    "name": "Nex",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 26348,
+        "dropRate": 500
+      },
+      {
+        "itemId": 26235,
+        "dropRate": 172
+      },
+      {
+        "itemId": 26372,
+        "dropRate": 258
+      },
+      {
+        "itemId": 26370,
+        "dropRate": 516
+      },
+      {
+        "itemId": 26376,
+        "dropRate": 258
+      },
+      {
+        "itemId": 26378,
+        "dropRate": 258
+      },
+      {
+        "itemId": 26380,
+        "dropRate": 258
+      }
+    ],
+    "rollsPerHour": 23,
+    "tags": [
+      "GodWarsDungeon",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 6619,
+    "name": "Chaos Fanatic",
+    "type": "DemiBoss",
+    "drops": [
+      {
+        "itemId": 11995,
+        "dropRate": 1000
+      },
+      {
+        "itemId": 11928,
+        "dropRate": 256
+      },
+      {
+        "itemId": 11931,
+        "dropRate": 256
+      }
+    ],
+    "rollsPerHour": 100,
+    "tags": [
+      "Wilderness",
+      "MidGame",
+      "SingleCombat"
+    ]
+  },
+  {
+    "id": 6618,
+    "name": "Crazy archaeologist",
+    "type": "DemiBoss",
+    "drops": [
+      {
+        "itemId": 11929,
+        "dropRate": 256
+      },
+      {
+        "itemId": 11932,
+        "dropRate": 256
+      },
+      {
+        "itemId": 11990,
+        "dropRate": 128
+      }
+    ],
+    "rollsPerHour": 75,
+    "tags": [
+      "Wilderness",
+      "MidGame",
+      "SingleCombat"
+    ]
+  },
+  {
+    "id": 6615,
+    "name": "Scorpia",
+    "type": "DemiBoss",
+    "drops": [
+      {
+        "itemId": 11930,
+        "dropRate": 256
+      },
+      {
+        "itemId": 11933,
+        "dropRate": 256
+      },
+      {
+        "itemId": 13181,
+        "dropRate": 2016
+      }
+    ],
+    "rollsPerHour": 130,
+    "tags": [
+      "Wilderness",
+      "MidGame",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 239,
+    "name": "King Black Dragon",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 12653,
+        "dropRate": 3000
+      },
+      {
+        "itemId": 7980,
+        "dropRate": 128
+      },
+      {
+        "itemId": 11920,
+        "dropRate": 1000
+      },
+      {
+        "itemId": 11286,
+        "dropRate": 5000
+      }
+    ],
+    "rollsPerHour": 130,
+    "tags": [
+      "Wilderness",
+      "Draconic",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 2054,
+    "name": "Chaos Elemental",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 11995,
+        "dropRate": 300
+      },
+      {
+        "itemId": 11920,
+        "dropRate": 256
+      },
+      {
+        "itemId": 7158,
+        "dropRate": 64
+      }
+    ],
+    "rollsPerHour": 120,
+    "tags": [
+      "Wilderness",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 11246,
+    "name": "Revenant maledictus",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 22557,
+        "dropRate": 7334
+      },
+      {
+        "itemId": 22547,
+        "dropRate": 14667
+      },
+      {
+        "itemId": 22552,
+        "dropRate": 14667
+      },
+      {
+        "itemId": 22542,
+        "dropRate": 14667
+      },
+      {
+        "itemId": 21807,
+        "dropRate": 1333
+      },
+      {
+        "itemId": 21810,
+        "dropRate": 2000
+      },
+      {
+        "itemId": 21813,
+        "dropRate": 4000
+      },
+      {
+        "itemId": 22299,
+        "dropRate": 8000
+      },
+      {
+        "itemId": 22302,
+        "dropRate": 8000
+      },
+      {
+        "itemId": 22305,
+        "dropRate": 8000
+      },
+      {
+        "itemId": 21804,
+        "dropRate": 2667
+      }
+    ],
+    "rollsPerHour": 100,
+    "tags": [
+      "Wilderness",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 11993,
+    "name": "Calvar'ion",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 13179,
+        "dropRate": 2800
+      },
+      {
+        "itemId": 7158,
+        "dropRate": 358
+      },
+      {
+        "itemId": 11920,
+        "dropRate": 358
+      },
+      {
+        "itemId": 27673,
+        "dropRate": 618
+      },
+      {
+        "itemId": 12601,
+        "dropRate": 716
+      },
+      {
+        "itemId": 27684,
+        "dropRate": 912
+      }
+    ],
+    "rollsPerHour": 55,
+    "tags": [
+      "SingleCombat",
+      "Wilderness"
+    ]
+  },
+  {
+    "id": 6611,
+    "name": "Vet'ion",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 13179,
+        "dropRate": 1500
+      },
+      {
+        "itemId": 27673,
+        "dropRate": 196
+      },
+      {
+        "itemId": 7158,
+        "dropRate": 256
+      },
+      {
+        "itemId": 11920,
+        "dropRate": 256
+      },
+      {
+        "itemId": 27684,
+        "dropRate": 360
+      },
+      {
+        "itemId": 12601,
+        "dropRate": 512
+      }
+    ],
+    "rollsPerHour": 50,
+    "tags": [
+      "MultiCombat",
+      "Wilderness"
+    ]
+  },
+  {
+    "id": 11998,
+    "name": "Spindel",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 13177,
+        "dropRate": 2800
+      },
+      {
+        "itemId": 7158,
+        "dropRate": 358
+      },
+      {
+        "itemId": 11920,
+        "dropRate": 358
+      },
+      {
+        "itemId": 27670,
+        "dropRate": 618
+      },
+      {
+        "itemId": 12605,
+        "dropRate": 716
+      },
+      {
+        "itemId": 27687,
+        "dropRate": 912
+      }
+    ],
+    "rollsPerHour": 55,
+    "tags": [
+      "Wilderness",
+      "SingleCombat"
+    ]
+  },
+  {
+    "id": 6610,
+    "name": "Venenatis",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 13177,
+        "dropRate": 1500
+      },
+      {
+        "itemId": 27670,
+        "dropRate": 196
+      },
+      {
+        "itemId": 7158,
+        "dropRate": 256
+      },
+      {
+        "itemId": 11920,
+        "dropRate": 256
+      },
+      {
+        "itemId": 27687,
+        "dropRate": 360
+      },
+      {
+        "itemId": 12605,
+        "dropRate": 512
+      }
+    ],
+    "rollsPerHour": 80,
+    "tags": [
+      "Wilderness",
+      "MultiCombat"
+    ]
+  },
+  {
+    "id": 11992,
+    "name": "Artio",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 13178,
+        "dropRate": 2800
+      },
+      {
+        "itemId": 7158,
+        "dropRate": 358
+      },
+      {
+        "itemId": 11920,
+        "dropRate": 358
+      },
+      {
+        "itemId": 27667,
+        "dropRate": 618
+      },
+      {
+        "itemId": 12603,
+        "dropRate": 716
+      },
+      {
+        "itemId": 27681,
+        "dropRate": 912
+      }
+    ],
+    "rollsPerHour": 60,
+    "tags": [
+      "SingleCombat",
+      "Wilderness"
+    ]
+  },
+  {
+    "id": 6609,
+    "name": "Callisto",
+    "type": "Boss",
+    "drops": [
+      {
+        "itemId": 13178,
+        "dropRate": 1500
+      },
+      {
+        "itemId": 27667,
+        "dropRate": 196
+      },
+      {
+        "itemId": 7158,
+        "dropRate": 256
+      },
+      {
+        "itemId": 11920,
+        "dropRate": 256
+      },
+      {
+        "itemId": 27681,
+        "dropRate": 360
+      },
+      {
+        "itemId": 12603,
+        "dropRate": 512
+      }
+    ],
+    "rollsPerHour": 142,
+    "tags": [
+      "MultiCombat",
+      "Wilderness"
+    ]
+  }
+]
