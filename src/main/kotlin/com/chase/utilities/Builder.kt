@@ -11,7 +11,7 @@ abstract class Builder<T>(val name: String) {
             items.add(newItem())
 
             print("Add Another $name Y/N: ")
-            if (!readln().first().equals('y', true)) {
+            if (readln().first().equals('n', true)) {
                 break
             }
         } while (true)
