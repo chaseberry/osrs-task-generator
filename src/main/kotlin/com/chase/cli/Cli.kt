@@ -99,10 +99,10 @@ class Cli(
                     println(itemProvider.remove(arg<Int>(0)) ?: "Item does not exist")
                 }
                 "itemsource" runs {
-                    println(itemSourceProvider.get(arg<Int>(0)) ?: "ItemSource does not exist")
+                    println(itemSourceProvider.remove(arg<Int>(0)) ?: "ItemSource does not exist")
                 }
                 "task" runs {
-                    println(taskProvider.get(arg<Int>(0)) ?: "Task does not exist")
+                    println(taskProvider.remove(arg<Int>(0)) ?: "Task does not exist")
                 }
             }
         },
