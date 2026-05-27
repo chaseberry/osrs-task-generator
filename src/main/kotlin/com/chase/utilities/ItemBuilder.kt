@@ -2,12 +2,6 @@ package com.chase.utilities
 
 import com.chase.models.items.Item
 import com.chase.models.items.ItemTag
-import io.ktor.client.HttpClient
-import io.ktor.client.engine.okhttp.OkHttp
-import io.ktor.client.request.get
-import io.ktor.client.statement.bodyAsText
-import kotlinx.coroutines.runBlocking
-import kotlinx.serialization.json.Json
 
 class ItemBuilder : Builder<Item>("Item") {
 

@@ -15,4 +15,6 @@ enum class ItemSourceTag {
     Dks,
     MoonsOfPeril,
     Draconic,
+    SingleCombat,
+    MultiCombat,
 }
