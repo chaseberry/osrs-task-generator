@@ -15,7 +15,7 @@ class ItemDropBuilder(
         dropRate = param("drop rate (1/x)") { toIntOrNull() },
     )
 
-    private suspend fun findItem(): Int? = itemProvider.search(param("name")).toList().let {
+    private suspend fun findItem(): Int? = itemProvider.search(param("name").trim()).toList().let {
         if (it.size == 1) {
             println("Found exact match against ${it.first().name}")
             it.first().id

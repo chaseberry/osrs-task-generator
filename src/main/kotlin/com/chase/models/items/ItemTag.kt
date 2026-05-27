@@ -24,4 +24,7 @@ enum class ItemTag {
     Elidinis,
     Component,
     Upgrade,
+    Range,
+    Melee,
+    Magic,
 }

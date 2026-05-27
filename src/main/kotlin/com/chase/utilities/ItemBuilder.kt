@@ -13,7 +13,7 @@ class ItemBuilder : Builder<Item>("Item") {
 
     val osrsItemData = WeirdGloopData(ITEM_JSON_URL, WeirdGloopItem.serializer())
 
-    override suspend fun newItem(): Item = with(param("name")) {
+    override suspend fun newItem(): Item = with(param("name").trim()) {
         Item(
             name = this,
             id = osrsItemData.lookupId(this) ?: param("id") { toIntOrNull() },

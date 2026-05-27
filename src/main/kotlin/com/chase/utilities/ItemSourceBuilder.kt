@@ -18,7 +18,7 @@ class ItemSourceBuilder(
 
     private val npcLookup = WeirdGloopData(NPC_ID_URL, WeirdGloopNpc.serializer())
 
-    override suspend fun newItem(): ItemSource = with(param("name")) {
+    override suspend fun newItem(): ItemSource = with(param("name").trim()) {
         ItemSource(
             id = npcLookup.lookupId(this) ?: param("id") { toIntOrNull() },
             name = this,

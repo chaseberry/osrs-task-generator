@@ -14,4 +14,5 @@ enum class ItemSourceTag {
     Barrows,
     Dks,
     MoonsOfPeril,
+    Draconic,
 }
