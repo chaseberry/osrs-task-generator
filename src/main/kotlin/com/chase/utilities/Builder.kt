@@ -8,10 +8,15 @@ abstract class Builder<T>(val name: String) {
         val items = ArrayList<T>()
 
         do {
-            items.add(newItem())
+            try {
+                items.add(newItem())
 
-            print("Add Another $name Y/N: ")
-            if (readln().first().equals('n', true)) {
+                print("Add Another $name Y/N: ")
+                if (readln().firstOrNull()?.equals('n', true) == true) {
+                    break
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
                 break
             }
         } while (true)
