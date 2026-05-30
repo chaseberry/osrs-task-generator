@@ -9,7 +9,19 @@ class RunConfiguration(
     val runMode: RunMode,
 ) {
 
-    enum class RunMode { Cli }
+    @Serializable
+    sealed class RunMode() {
+
+        @SerialName("Cli")
+        @Serializable
+        object Cli : RunMode()
+
+        @SerialName("Generate")
+        @Serializable
+        class Generate(
+            val parametersFile: String
+        ): RunMode()
+    }
 
     @Serializable
     sealed class DataSource {

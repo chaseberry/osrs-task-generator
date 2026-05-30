@@ -5,11 +5,16 @@ import com.chase.models.tasks.TaskTier
 import com.chase.models.tasks.TaskType
 import com.chase.providers.TaskProvider
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 
 class InMemoryCustomTaskProvider(
     items: List<Task>,
 ) : TaskProvider, BaseInMemoryProvider<Task>(items.toMutableList()) {
+
+    override suspend fun search(query: String): Flow<Task> = items.filter {
+        TODO("query tasks")
+    }.asFlow()
 
     override suspend fun query(
         only: List<Int>?,

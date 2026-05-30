@@ -1,0 +1,15 @@
+{
+  "numberOfGenerations": 5,
+  "taskBreakdownPerGeneration": [
+    "Easy",
+    "Medium",
+    "Hard",
+    "Elite"
+  ],
+  "completionsPerHourModifier": 1,
+  "uniqueTasksPerGeneration": true,
+  "allUniqueTasks": true,
+  "easyTaskHours": 5,
+  "mediumTaskHours": 10,
+  "hardTaskHours": 20
+}

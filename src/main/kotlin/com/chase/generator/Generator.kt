@@ -26,7 +26,8 @@ class Generator(
     //  2.a for each breakdown element
     //   2.a.1 generate one task
 
-    suspend fun generateTasks() {
+    suspend fun generateTasks(): List<List<Task>> {
+        val generations = ArrayList<List<Task>>()
         val allOptions = buildTaskOptions()
         val usedTasks = if (parameters.allUniqueTasks) {
             mutableListOf<Int>()
@@ -35,10 +36,12 @@ class Generator(
         }
 
         (0 until parameters.numberOfGenerations).forEach { _ ->
-            generateGeneration(allOptions, usedTasks).also {
+            generations.add(generateGeneration(allOptions, usedTasks).also {
                 usedTasks?.addAll(it.map { it.id })
-            }
+            })
         }
+
+        return generations
     }
 
     private fun generateGeneration(options: Map<TaskTier, List<Task>>, usedTasks: List<Int>?): List<Task> {
@@ -124,7 +127,7 @@ class Generator(
     }
 
     private fun hoursToDropRate(rollsPerHour: Int, drop: ItemDrop): Int {
-        return (rollsPerHour * parameters.completionsPerHourModifier).toInt() / drop.dropRate
+        return drop.dropRate / (rollsPerHour * parameters.completionsPerHourModifier).toInt()
     }
 
     private fun tierForHours(hours: Int): TaskTier? = when {

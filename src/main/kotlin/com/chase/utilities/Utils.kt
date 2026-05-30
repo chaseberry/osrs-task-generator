@@ -16,7 +16,7 @@ fun param(name: String): String {
     do {
         print("$name: ")
         readln().takeIf { it.isNotBlank() }?.let {
-            return it
+            return it.trim()
         }
     } while (true)
 }
@@ -40,7 +40,7 @@ fun <T> listParams(name: String, error: String? = null, convert: String.() -> T?
     do {
         print("> ")
         val r = readln().takeIf { it.isNotBlank() } ?: break
-        convert(r)?.let { items.add(it) } ?: println(error ?: "Failed to convert $r")
+        convert(r.trim())?.let { items.add(it) } ?: println(error ?: "Failed to convert $r")
     } while (true)
 
     return items
@@ -49,7 +49,7 @@ fun <T> listParams(name: String, error: String? = null, convert: String.() -> T?
 fun <T : Enum<T>> enumParam(name: String, clazz: KClass<T>): T {
     do {
         print("$name: ")
-        when (val r = readln().takeIf { it.isNotBlank() }) {
+        when (val r = readln().takeIf { it.isNotBlank() }?.trim()) {
             "?" -> printEnum(clazz)
             null -> continue
             else -> clazz.findEnum(r)?.let { return it } ?: println("Failed to find matching value...")
@@ -63,7 +63,7 @@ fun <T : Enum<T>> listEnum(name: String, clazz: KClass<T>): List<T> {
 
     do {
         print("> ")
-        when (val r = readln().takeIf { it.isNotBlank() }) {
+        when (val r = readln().takeIf { it.isNotBlank() }?.trim()) {
             "?" -> printEnum(clazz)
             null -> break
             else -> clazz.findEnum(r)?.let { items.add(it) } ?: println("Failed to find matching value...")
@@ -108,4 +108,10 @@ fun String.regexify() = try {
     Regex(this, RegexOption.IGNORE_CASE)
 } catch (e: PatternSyntaxException) {
     Regex(Pattern.quote(this), RegexOption.IGNORE_CASE)
+}
+
+fun String.toBoolean(): Boolean? = when (this.lowercase()) {
+    "yes", "1", "true", "y" -> true
+    "no", "0", "false", "n" -> false
+    else -> null
 }

@@ -1,5 +1,8 @@
 {
-  "runMode": "Cli",
+  "runMode": {
+    "type": "Generate",
+    "parametersFile": "./config/testGenerateParams.json"
+  },
   "dataSource": {
     "type": "InMemory",
     "itemPreseedFile": "./config/items.json",

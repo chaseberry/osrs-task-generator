@@ -1,14 +1,19 @@
 package com.chase.cli
 
 import com.chase.RunConfiguration
+import com.chase.generator.Generator
+import com.chase.generator.parameters.GeneratorParameters
+import com.chase.models.tasks.TaskTier
 import com.chase.providers.ItemProvider
 import com.chase.providers.ItemSourceProvider
 import com.chase.providers.TaskProvider
 import com.chase.utilities.ItemBuilder
 import com.chase.utilities.ItemSourceBuilder
 import com.chase.utilities.TaskBuilder
+import com.chase.utilities.listEnum
 import com.chase.utilities.param
 import com.chase.utilities.runs
+import com.chase.utilities.toBoolean
 import com.chase.utilities.toFile
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.onEmpty
@@ -52,7 +57,9 @@ class Cli(
                     }
                 }
                 "tasks" runs {
-                    TODO("")
+                    taskProvider.search(arg(0)).onItemOrEmpty("No tasks match") {
+                        println("${it.id}: ${it.type}")
+                    }
                 }
             }
         },
@@ -127,7 +134,27 @@ class Cli(
             }
         },
         "generate" runs {
-
+            Generator(
+                parameters = GeneratorParameters(
+                    numberOfGenerations = param("# of tasks") { toIntOrNull() },
+                    taskBreakdownPerGeneration = listEnum("Task Breakdown", TaskTier::class),
+                    completionsPerHourModifier = param("completions per hour mod") { toDoubleOrNull() },
+                    uniqueTasksPerGeneration = param("unique tasks per generation") { toBoolean() },
+                    allUniqueTasks = param("all unique tasks") { toBoolean() },
+                    easyTaskHours = param("easy task hours") { toIntOrNull() },
+                    mediumTaskHours = param("medium task hours") { toIntOrNull() },
+                    hardTaskHours = param("hard task hours") { toIntOrNull() },
+                    eliteTaskHours = null,
+                    itemFilters = null,
+                    itemSourceFilter = null,
+                    taskFilters = null,
+                ),
+                taskProvider = taskProvider,
+                itemProvider = itemProvider,
+                itemSourceProvider = itemSourceProvider,
+            ).generateTasks().forEach {
+                println("Tasks ${it.joinToString(", ")}")
+            }
         }
     )
 

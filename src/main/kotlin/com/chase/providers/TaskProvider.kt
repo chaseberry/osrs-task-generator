@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface TaskProvider : Provider<Task> {
 
+    suspend fun search(query: String): Flow<Task>
+
     suspend fun query(
         only: List<Int>?,
         except: List<Int>?,

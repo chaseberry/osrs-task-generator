@@ -1,6 +1,8 @@
 package com.chase
 
 import com.chase.cli.Cli
+import com.chase.generator.Generator
+import com.chase.generator.parameters.GeneratorParameters
 import com.chase.providers.sources.InMemoryCustomTaskProvider
 import com.chase.providers.sources.InMemoryItemProvider
 import com.chase.providers.sources.InMemoryItemSourceProvider
@@ -25,6 +27,7 @@ class OsrsTaskGenerator(
 
         return when (runConfig.runMode) {
             RunConfiguration.RunMode.Cli -> runCli(runConfig)
+            is RunConfiguration.RunMode.Generate -> runGenerate(runConfig, runConfig.runMode.parametersFile)
         }
     }
 
@@ -35,6 +38,19 @@ class OsrsTaskGenerator(
             customTaskProvider(),
             runConfiguration,
         ).run()
+    }
+
+    private suspend fun runGenerate(config: RunConfiguration, path: String) = with(config.dataSource) {
+        val params = Json.decodeFromString<GeneratorParameters>(readFile(path))
+
+        Generator(
+            params,
+            itemProvider(),
+            itemSourceProvider(),
+            customTaskProvider()
+        ).generateTasks().forEach {
+            println(it.joinToString(", "))
+        }
     }
 
     private suspend fun parseConfiguration(): RunConfiguration {
