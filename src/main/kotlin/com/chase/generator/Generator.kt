@@ -97,7 +97,7 @@ class Generator(
         val itemDropTaskOptions = sources.flatMap { (src, drops) ->
             drops.mapNotNull {
                 tierForHours(hoursToDropRate(src.rollsPerHour, it.key))?.let { tier ->
-                    Task.ObtainItemTask(
+                    Task.ObtainSpecificItemFromSpecificSourceTask(
                         id = taskId++,
                         tier = tier,
                         itemId = it.value.id,

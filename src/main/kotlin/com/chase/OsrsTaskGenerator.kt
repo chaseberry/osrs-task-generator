@@ -3,6 +3,7 @@ package com.chase
 import com.chase.cli.Cli
 import com.chase.generator.Generator
 import com.chase.generator.parameters.GeneratorParameters
+import com.chase.models.tasks.Task
 import com.chase.providers.sources.InMemoryCustomTaskProvider
 import com.chase.providers.sources.InMemoryItemProvider
 import com.chase.providers.sources.InMemoryItemSourceProvider
@@ -43,13 +44,22 @@ class OsrsTaskGenerator(
     private suspend fun runGenerate(config: RunConfiguration, path: String) = with(config.dataSource) {
         val params = Json.decodeFromString<GeneratorParameters>(readFile(path))
 
+        val items = itemProvider()
+
+        val sources = itemSourceProvider()
+
         Generator(
             params,
-            itemProvider(),
-            itemSourceProvider(),
+            items,
+            sources,
             customTaskProvider()
         ).generateTasks().forEach {
-            println(it.joinToString(", "))
+            println()
+            println(it.map {
+                (it as Task.ObtainSpecificItemFromSpecificSourceTask)
+                "Obtain ${items.get(it.itemId)?.name} from ${sources.get(it.itemSourceId)?.name}"
+            }
+                .joinToString("\n"))
         }
     }
 

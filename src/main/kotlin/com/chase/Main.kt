@@ -14,5 +14,6 @@ fun main(args: Array<String>): Unit = runBlocking {
     1. Tormented Demons
     2. Demonic Gorillas
     3. Shamans
+    4. Add more tags to items so I can do combined things
 
 */

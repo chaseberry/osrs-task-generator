@@ -8,4 +8,4 @@ data class Item(
     override val id: Int,
     val name: String,
     val tags: List<ItemTag>,
-): Model
+) : Model

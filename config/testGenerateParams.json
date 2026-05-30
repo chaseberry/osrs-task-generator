@@ -11,5 +11,11 @@
   "allUniqueTasks": true,
   "easyTaskHours": 5,
   "mediumTaskHours": 10,
-  "hardTaskHours": 20
+  "hardTaskHours": 20,
+  "itemFilters": {
+    "tags": {
+      "type": "BlackList",
+      "values": ["Pet"]
+    }
+  }
 }
