@@ -1,8 +1,10 @@
 package com.chase.models.tasks
 
 import com.chase.models.Model
+import com.chase.models.items.ItemTag
 import com.chase.models.osrs.OsrsClueScrollTier
 import com.chase.models.osrs.OsrsSkill
+import com.chase.models.sources.ItemSourceTag
 import com.chase.models.sources.ItemSourceType
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -27,30 +29,35 @@ sealed class Task(
     data class ObtainAnyItemFromSpecificSourceTask(
         override val id: Int,
         override val tier: TaskTier,
+        val itemSourceId: Int,
     ) : Task(TaskType.ObtainAnyItemFromSpecificSource)
 
     @SerialName("ObtainSpecificItem")
     data class ObtainSpecificItemTask(
         override val id: Int,
         override val tier: TaskTier,
+        val itemId: Int,
     ) : Task(TaskType.ObtainSpecificItem)
 
     @SerialName("ObtainItemWithTag")
     data class ObtainItemWithTagTask(
         override val id: Int,
         override val tier: TaskTier,
+        val tag: ItemTag,
     ) : Task(TaskType.ObtainItemWithTag)
 
     @SerialName("ObtainAnyItemFromSourceType")
     data class ObtainAnyItemFromSourceTypeTask(
         override val id: Int,
         override val tier: TaskTier,
+        val itemSourceType: ItemSourceType,
     ) : Task(TaskType.ObtainAnyItemFromSourceType)
 
     @SerialName("ObtainAnyItemFromSourceTag")
     data class ObtainAnyItemFromSourceTagTask(
         override val id: Int,
         override val tier: TaskTier,
+        val itemSourceTag: ItemSourceTag,
     ) : Task(TaskType.ObtainAnyItemFromSourceTag)
 
     @SerialName("ObtainXpInSkill")

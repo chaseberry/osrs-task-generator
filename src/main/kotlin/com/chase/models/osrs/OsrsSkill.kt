@@ -1,4 +1,4 @@
 package com.chase.models.osrs
 
-enum class OsrsSkill {
+enum class OsrsSkill(val category: OsrsSkillCategory) {
 }

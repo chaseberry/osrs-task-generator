@@ -138,7 +138,7 @@ class Cli(
                 parameters = GeneratorParameters(
                     numberOfGenerations = param("# of tasks") { toIntOrNull() },
                     taskBreakdownPerGeneration = listEnum("Task Breakdown", TaskTier::class),
-                    completionsPerHourModifier = param("completions per hour mod") { toDoubleOrNull() },
+                    defaultCompletionsPerHourModifier = param("completions per hour mod") { toDoubleOrNull() },
                     uniqueTasksPerGeneration = param("unique tasks per generation") { toBoolean() },
                     allUniqueTasks = param("all unique tasks") { toBoolean() },
                     easyTaskHours = param("easy task hours") { toIntOrNull() },
@@ -147,7 +147,7 @@ class Cli(
                     eliteTaskHours = null,
                     itemFilters = null,
                     itemSourceFilter = null,
-                    taskFilters = null,
+                    customTaskFilters = null,
                 ),
                 taskProvider = taskProvider,
                 itemProvider = itemProvider,
