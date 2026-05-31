@@ -42,6 +42,7 @@ enum class ItemTag {
     Magic,
     Dt2Quartz,
     Dt2Ring,
+    SraPiece,
     ArmadylArmor,
     BandosArmor,
     TorvaArmor,
@@ -55,4 +56,6 @@ enum class ItemTag {
     ChambersUnique,
     TheatreUnique,
     TombsUnique,
+    SlayerHelmRecolor,
+    MegaRare,
 }
