@@ -70,6 +70,10 @@ class Generator(
             null
         }
 
+        println(
+            "Found ${allOptions.keys.joinToString(", ") { "$it = ${allOptions[it]?.size}" }}"
+        )
+
         (0 until parameters.numberOfGenerations).forEach { _ ->
             generations.add(generateGeneration(allOptions, usedTasks).also {
                 usedTasks?.addAll(it.map { it.id })
