@@ -104,7 +104,8 @@
       "Armor",
       "Barrows",
       "Melee",
-      "Dharoks"
+      "Dharoks",
+      "Tank"
     ]
   },
   {
@@ -114,7 +115,8 @@
       "Armor",
       "Barrows",
       "Melee",
-      "Dharoks"
+      "Dharoks",
+      "Tank"
     ]
   },
   {
@@ -124,7 +126,8 @@
       "Armor",
       "Barrows",
       "Melee",
-      "Dharoks"
+      "Dharoks",
+      "Tank"
     ]
   },
   {
@@ -144,7 +147,8 @@
       "Barrows",
       "Armor",
       "Melee",
-      "Guthans"
+      "Guthans",
+      "Tank"
     ]
   },
   {
@@ -154,7 +158,8 @@
       "Barrows",
       "Armor",
       "Melee",
-      "Guthans"
+      "Guthans",
+      "Tank"
     ]
   },
   {
@@ -164,7 +169,8 @@
       "Barrows",
       "Armor",
       "Melee",
-      "Guthans"
+      "Guthans",
+      "Tank"
     ]
   },
   {
@@ -184,7 +190,8 @@
       "Armor",
       "Barrows",
       "Torags",
-      "Melee"
+      "Melee",
+      "Tank"
     ]
   },
   {
@@ -194,7 +201,8 @@
       "Armor",
       "Barrows",
       "Torags",
-      "Melee"
+      "Melee",
+      "Tank"
     ]
   },
   {
@@ -204,7 +212,8 @@
       "Armor",
       "Barrows",
       "Torags",
-      "Melee"
+      "Melee",
+      "Tank"
     ]
   },
   {
@@ -261,7 +270,10 @@
     "id": 28798,
     "name": "Scurrius' spine",
     "tags": [
-      "Component"
+      "Component",
+      "Magic",
+      "Melee",
+      "Range"
     ]
   },
   {
@@ -282,7 +294,8 @@
     "id": 30895,
     "name": "Steel ring",
     "tags": [
-      "Armor"
+      "Armor",
+      "Tank"
     ]
   },
   {
@@ -593,7 +606,9 @@
     "name": "Armadyl hilt",
     "tags": [
       "Armadyl",
-      "Component"
+      "Component",
+      "Melee",
+      "Spec"
     ]
   },
   {
@@ -639,7 +654,9 @@
     "name": "Saradomin hilt",
     "tags": [
       "Saradomin",
-      "Component"
+      "Component",
+      "Melee",
+      "Spec"
     ]
   },
   {
@@ -736,7 +753,9 @@
     "name": "Zamorak hilt",
     "tags": [
       "Zamorak",
-      "Component"
+      "Component",
+      "Melee",
+      "Spec"
     ]
   },
   {
@@ -780,21 +799,24 @@
     "id": 12819,
     "name": "Elysian sigil",
     "tags": [
-      "Component"
+      "Component",
+      "Tank"
     ]
   },
   {
     "id": 12823,
     "name": "Spectral sigil",
     "tags": [
-      "Component"
+      "Component",
+      "Prayer"
     ]
   },
   {
     "id": 12827,
     "name": "Arcane sigil",
     "tags": [
-      "Component"
+      "Component",
+      "Magic"
     ]
   },
   {
@@ -808,7 +830,8 @@
     "id": 12829,
     "name": "Spirit shield",
     "tags": [
-      "Armor"
+      "Armor",
+      "Prayer"
     ]
   },
   {
@@ -831,7 +854,9 @@
     "name": "Ancient hilt",
     "tags": [
       "Zaros",
-      "Component"
+      "Component",
+      "Melee",
+      "Spec"
     ]
   },
   {
@@ -839,7 +864,9 @@
     "name": "Nihil horn",
     "tags": [
       "Zaros",
-      "Component"
+      "Component",
+      "Range",
+      "Spec"
     ]
   },
   {
@@ -893,7 +920,9 @@
     "name": "Bandos hilt",
     "tags": [
       "Bandos",
-      "Component"
+      "Component",
+      "Melee",
+      "Spec"
     ]
   },
   {
@@ -901,7 +930,8 @@
     "name": "Odium shard 1",
     "tags": [
       "Component",
-      "WildernessShard"
+      "WildernessShard",
+      "Range"
     ]
   },
   {
@@ -909,7 +939,8 @@
     "name": "Malediction shard 1",
     "tags": [
       "Component",
-      "WildernessShard"
+      "WildernessShard",
+      "Magic"
     ]
   },
   {
@@ -917,7 +948,8 @@
     "name": "Odium shard 2",
     "tags": [
       "Component",
-      "WildernessShard"
+      "WildernessShard",
+      "Range"
     ]
   },
   {
@@ -925,7 +957,8 @@
     "name": "Malediction shard 2",
     "tags": [
       "Component",
-      "WildernessShard"
+      "WildernessShard",
+      "Magic"
     ]
   },
   {
@@ -947,7 +980,8 @@
     "name": "Odium shard 3",
     "tags": [
       "Component",
-      "WildernessShard"
+      "WildernessShard",
+      "Range"
     ]
   },
   {
@@ -955,7 +989,8 @@
     "name": "Malediction shard 3",
     "tags": [
       "Component",
-      "WildernessShard"
+      "WildernessShard",
+      "Magic"
     ]
   },
   {
@@ -977,7 +1012,8 @@
     "id": 11286,
     "name": "Draconic visage",
     "tags": [
-      "Component"
+      "Component",
+      "Melee"
     ]
   },
   {
@@ -992,7 +1028,8 @@
     "name": "Craw's bow (u)",
     "tags": [
       "Weapon",
-      "Range"
+      "Range",
+      "WildernessWeapon"
     ]
   },
   {
@@ -1000,7 +1037,8 @@
     "name": "Thammaron's sceptre (u)",
     "tags": [
       "Weapon",
-      "Magic"
+      "Magic",
+      "WildernessWeapon"
     ]
   },
   {
@@ -1008,7 +1046,8 @@
     "name": "Viggora's chainmace (u)",
     "tags": [
       "Weapon",
-      "Melee"
+      "Melee",
+      "WildernessWeapon"
     ]
   },
   {
@@ -1060,21 +1099,27 @@
     "name": "Ring of the gods",
     "tags": [
       "Armor",
-      "WildernessRing"
+      "WildernessRing",
+      "Prayer"
     ]
   },
   {
     "id": 27673,
     "name": "Skull of vet'ion",
     "tags": [
-      "Component"
+      "Component",
+      "WildernessWeaponUpgrade",
+      "Magic"
     ]
   },
   {
     "id": 27684,
     "name": "Voidwaker blade",
     "tags": [
-      "Component"
+      "Component",
+      "VoidwakerComponent",
+      "Melee",
+      "Spec"
     ]
   },
   {
@@ -1089,21 +1134,27 @@
     "name": "Treasonous ring",
     "tags": [
       "Armor",
-      "WildernessRing"
+      "WildernessRing",
+      "Melee"
     ]
   },
   {
     "id": 27670,
     "name": "Fangs of venenatis",
     "tags": [
-      "Component"
+      "Component",
+      "Range",
+      "WildernessWeaponUpgrade"
     ]
   },
   {
     "id": 27687,
     "name": "Voidwaker gem",
     "tags": [
-      "Component"
+      "Component",
+      "VoidwakerComponent",
+      "Melee",
+      "Spec"
     ]
   },
   {
@@ -1118,21 +1169,27 @@
     "name": "Tyrannical ring",
     "tags": [
       "Armor",
-      "WildernessRing"
+      "WildernessRing",
+      "Melee"
     ]
   },
   {
     "id": 27667,
     "name": "Claws of callisto",
     "tags": [
-      "Component"
+      "Component",
+      "Melee",
+      "WildernessWeaponUpgrade"
     ]
   },
   {
     "id": 27681,
     "name": "Voidwaker hilt",
     "tags": [
-      "Component"
+      "Component",
+      "VoidwakerComponent",
+      "Melee",
+      "Spec"
     ]
   },
   {
@@ -1236,14 +1293,16 @@
     "id": 30631,
     "name": "Fire element staff crown",
     "tags": [
-      "Component"
+      "Component",
+      "Magic"
     ]
   },
   {
     "id": 30628,
     "name": "Ice element staff crown",
     "tags": [
-      "Component"
+      "Component",
+      "Magic"
     ]
   },
   {
@@ -1272,7 +1331,10 @@
     "id": 31088,
     "name": "Avernic treads",
     "tags": [
-      "Armor"
+      "Armor",
+      "Magic",
+      "Melee",
+      "Range"
     ]
   },
   {
@@ -1287,7 +1349,8 @@
     "id": 31109,
     "name": "Mokhaiotl cloth",
     "tags": [
-      "Component"
+      "Component",
+      "Magic"
     ]
   },
   {
@@ -1334,21 +1397,24 @@
     "id": 12932,
     "name": "Magic fang",
     "tags": [
-      "Component"
+      "Component",
+      "Magic"
     ]
   },
   {
     "id": 12927,
     "name": "Serpentine visage",
     "tags": [
-      "Armor"
+      "Armor",
+      "Melee"
     ]
   },
   {
     "id": 12922,
     "name": "Tanzanite fang",
     "tags": [
-      "Weapon"
+      "Weapon",
+      "Range"
     ]
   },
   {
@@ -1390,7 +1456,8 @@
     "id": 22006,
     "name": "Skeletal visage",
     "tags": [
-      "Component"
+      "Component",
+      "Range"
     ]
   },
   {
@@ -1404,7 +1471,8 @@
     "id": 22111,
     "name": "Dragonbone necklace",
     "tags": [
-      "Armor"
+      "Armor",
+      "Prayer"
     ]
   },
   {
@@ -1418,14 +1486,16 @@
     "id": 27614,
     "name": "Venator shard",
     "tags": [
-      "Component"
+      "Component",
+      "Range"
     ]
   },
   {
     "id": 27627,
     "name": "Ancient icon",
     "tags": [
-      "Component"
+      "Component",
+      "Magic"
     ]
   },
   {
@@ -1492,21 +1562,26 @@
     "id": 24514,
     "name": "Volatile orb",
     "tags": [
-      "Component"
+      "Component",
+      "Spec",
+      "Magic"
     ]
   },
   {
     "id": 24511,
     "name": "Harmonised orb",
     "tags": [
-      "Component"
+      "Component",
+      "Magic"
     ]
   },
   {
     "id": 24517,
     "name": "Eldritch orb",
     "tags": [
-      "Component"
+      "Component",
+      "Magic",
+      "Spec"
     ]
   },
   {
@@ -1534,7 +1609,8 @@
     "id": 30759,
     "name": "Soulflame horn",
     "tags": [
-      "Weapon"
+      "Weapon",
+      "Spec"
     ]
   },
   {
@@ -1819,7 +1895,8 @@
     "name": "Black tourmaline core",
     "tags": [
       "Slayer",
-      "Component"
+      "Component",
+      "Tank"
     ]
   },
   {
@@ -1827,7 +1904,8 @@
     "name": "Granite gloves",
     "tags": [
       "Slayer",
-      "Armor"
+      "Armor",
+      "Tank"
     ]
   },
   {
@@ -1835,7 +1913,8 @@
     "name": "Granite ring",
     "tags": [
       "Slayer",
-      "Armor"
+      "Armor",
+      "Tank"
     ]
   },
   {
@@ -1884,7 +1963,8 @@
     "name": "Bludgeon spine",
     "tags": [
       "Slayer",
-      "Component"
+      "Component",
+      "Melee"
     ]
   },
   {
@@ -1892,7 +1972,8 @@
     "name": "Bludgeon claw",
     "tags": [
       "Slayer",
-      "Component"
+      "Component",
+      "Melee"
     ]
   },
   {
@@ -1900,7 +1981,8 @@
     "name": "Bludgeon axon",
     "tags": [
       "Slayer",
-      "Component"
+      "Component",
+      "Melee"
     ]
   },
   {
@@ -1942,7 +2024,8 @@
     "name": "Kraken tentacle",
     "tags": [
       "Component",
-      "Slayer"
+      "Slayer",
+      "Melee"
     ]
   },
   {
@@ -2137,7 +2220,8 @@
     "name": "Hydra tail",
     "tags": [
       "Slayer",
-      "Component"
+      "Component",
+      "Prayer"
     ]
   },
   {
@@ -2154,7 +2238,10 @@
     "name": "Hydra's fang",
     "tags": [
       "Slayer",
-      "Component"
+      "Component",
+      "Melee",
+      "Range",
+      "Magic"
     ]
   },
   {
@@ -2162,7 +2249,10 @@
     "name": "Hydra's eye",
     "tags": [
       "Slayer",
-      "Component"
+      "Component",
+      "Melee",
+      "Range",
+      "Magic"
     ]
   },
   {
@@ -2170,7 +2260,10 @@
     "name": "Hydra's heart",
     "tags": [
       "Slayer",
-      "Component"
+      "Component",
+      "Melee",
+      "Range",
+      "Magic"
     ]
   },
   {
@@ -2227,14 +2320,19 @@
     "id": 4207,
     "name": "Crystal weapon seed",
     "tags": [
-      "Component"
+      "Component",
+      "Melee",
+      "Range",
+      "Tank"
     ]
   },
   {
     "id": 25859,
     "name": "Enhanced crystal weapon seed",
     "tags": [
-      "Component"
+      "Component",
+      "Range",
+      "Melee"
     ]
   },
   {
@@ -2287,7 +2385,8 @@
     "name": "Sunfire fanatic cuirass",
     "tags": [
       "Armor",
-      "SunfireArmor"
+      "SunfireArmor",
+      "Prayer"
     ]
   },
   {
@@ -2295,7 +2394,8 @@
     "name": "Sunfire fanatic chausses",
     "tags": [
       "Armor",
-      "SunfireArmor"
+      "SunfireArmor",
+      "Prayer"
     ]
   },
   {
@@ -2303,14 +2403,16 @@
     "name": "Sunfire fanatic helm",
     "tags": [
       "Armor",
-      "SunfireArmor"
+      "SunfireArmor",
+      "Prayer"
     ]
   },
   {
     "id": 28942,
     "name": "Echo crystal",
     "tags": [
-      "Component"
+      "Component",
+      "Tank"
     ]
   },
   {

@@ -12,5 +12,5 @@ fun main(args: Array<String>): Unit = runBlocking {
 
 /* TODO
     4. Add more tags to items so I can do combined things
-
+    5. Ancient Wyvern Visage
 */
