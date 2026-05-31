@@ -101,15 +101,11 @@ class Generator(
     }
 
     private fun generateTask(options: List<Task>, usedTasks: List<Int>?): Task? {
-        if (usedTasks != null && usedTasks.size >= options.size) {
-            return null
-        }
-
         if (usedTasks == null) {
             return options.random()
         }
 
-        return options.filter { it.id !in usedTasks }.random()
+        return options.filter { it.id !in usedTasks }.randomOrNull()
     }
 
     private suspend fun buildTaskOptions(): Map<TaskTier, List<Task>> {

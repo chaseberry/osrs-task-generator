@@ -7,6 +7,7 @@ import com.chase.models.tasks.Task
 import com.chase.providers.sources.InMemoryCustomTaskProvider
 import com.chase.providers.sources.InMemoryItemProvider
 import com.chase.providers.sources.InMemoryItemSourceProvider
+import com.chase.utilities.TaskRenderer
 import com.chase.utilities.readFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -45,8 +46,8 @@ class OsrsTaskGenerator(
         val params = Json.decodeFromString<GeneratorParameters>(readFile(path))
 
         val items = itemProvider()
-
         val sources = itemSourceProvider()
+        val r = TaskRenderer(items, sources)
 
         Generator(
             params,
@@ -55,11 +56,11 @@ class OsrsTaskGenerator(
             customTaskProvider()
         ).generateTasks().forEach {
             println()
-            println(it.map {
-                (it as Task.ObtainSpecificItemFromSpecificSourceTask)
-                "Obtain ${items.get(it.itemId)?.name} from ${sources.get(it.itemSourceId)?.name}"
-            }
-                .joinToString("\n"))
+            println(
+                it.map {
+                    r.renderTaskAsString(it)
+                }.joinToString("\n")
+            )
         }
     }
 
