@@ -283,6 +283,9 @@ class Generator(
     }
 
     private fun hoursToDropRate(rollsPerHour: Int, dropRate: Int, sourceId: Int?): Int {
+        if (parameters.factorTaskTimeForSlayerBosses) {
+            error!
+        }
         val modifier = sourceId?.let { id ->
             parameters.sourceCompletionsPerHourModifier?.let {
                 it[id]

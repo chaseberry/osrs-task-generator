@@ -13,6 +13,7 @@ class GeneratorParameters(
     val uniqueTasksPerGeneration: Boolean = true,
     val allUniqueTasks: Boolean = false,
     val generateTaskFilter: Filter<TaskType>? = null,
+    val factorTaskTimeForSlayerBosses: Boolean,
 
     // definitions
     val easyTaskHours: Int, // <=
