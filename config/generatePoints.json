@@ -1,0 +1,15 @@
+{
+  "itemSourceFilter": {
+    "itemSourceTags": {
+      "type": "WhiteList",
+      "values": [
+        "Slayer"
+      ]
+    }
+  },
+  "pointsModifier": {
+    "Jar": 0.25,
+    "Pet": 0.25,
+    "Cosmetic": 0.25
+  }
+}

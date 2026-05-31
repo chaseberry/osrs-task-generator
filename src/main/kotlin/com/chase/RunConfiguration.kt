@@ -16,9 +16,15 @@ class RunConfiguration(
         @Serializable
         object Cli : RunMode()
 
-        @SerialName("Generate")
+        @SerialName("GenerateTasks")
         @Serializable
-        class Generate(
+        class GenerateTasks(
+            val parametersFile: String
+        ): RunMode()
+
+        @SerialName("GeneratePoints")
+        @Serializable
+        class GeneratePoints(
             val parametersFile: String
         ): RunMode()
     }

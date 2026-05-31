@@ -3,16 +3,14 @@ package com.chase
 import com.chase.cli.Cli
 import com.chase.generator.Generator
 import com.chase.generator.parameters.GeneratorParameters
-import com.chase.models.tasks.Task
+import com.chase.points.PointAssigner
+import com.chase.points.parameters.PointAssignmentParameters
 import com.chase.providers.sources.InMemoryCustomTaskProvider
 import com.chase.providers.sources.InMemoryItemProvider
 import com.chase.providers.sources.InMemoryItemSourceProvider
 import com.chase.utilities.TaskRenderer
 import com.chase.utilities.readFile
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
-import java.io.File
 
 class OsrsTaskGenerator(
     val configString: String,
@@ -29,7 +27,8 @@ class OsrsTaskGenerator(
 
         return when (runConfig.runMode) {
             RunConfiguration.RunMode.Cli -> runCli(runConfig)
-            is RunConfiguration.RunMode.Generate -> runGenerate(runConfig, runConfig.runMode.parametersFile)
+            is RunConfiguration.RunMode.GenerateTasks -> runGenerateTasks(runConfig, runConfig.runMode.parametersFile)
+            is RunConfiguration.RunMode.GeneratePoints -> runGeneratePoints(runConfig, runConfig.runMode.parametersFile)
         }
     }
 
@@ -42,7 +41,7 @@ class OsrsTaskGenerator(
         ).run()
     }
 
-    private suspend fun runGenerate(config: RunConfiguration, path: String) = with(config.dataSource) {
+    private suspend fun runGenerateTasks(config: RunConfiguration, path: String) = with(config.dataSource) {
         val params = Json.decodeFromString<GeneratorParameters>(readFile(path))
 
         val items = itemProvider()
@@ -62,6 +61,18 @@ class OsrsTaskGenerator(
                 }.joinToString("\n")
             )
         }
+    }
+
+    private suspend fun runGeneratePoints(config: RunConfiguration, path: String) = with(config.dataSource) {
+        val params = Json.decodeFromString<PointAssignmentParameters>(readFile(path))
+        val items = itemProvider()
+        val sources = itemSourceProvider()
+
+        PointAssigner(
+            params,
+            sources,
+            items,
+        ).calculatePoints()
     }
 
     private suspend fun parseConfiguration(): RunConfiguration {

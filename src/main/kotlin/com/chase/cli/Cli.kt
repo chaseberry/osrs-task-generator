@@ -148,6 +148,7 @@ class Cli(
                     itemFilters = null,
                     itemSourceFilter = null,
                     customTaskFilters = null,
+                    factorTaskTimeForSlayerBosses = false
                 ),
                 taskProvider = taskProvider,
                 itemProvider = itemProvider,

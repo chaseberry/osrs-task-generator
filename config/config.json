@@ -1,7 +1,7 @@
 {
   "runMode": {
-    "type": "Generate",
-    "parametersFile": "./config/testGenerateParams.json"
+    "type": "GeneratePoints",
+    "parametersFile": "./config/generatePoints.json"
   },
   "dataSource": {
     "type": "InMemory",
