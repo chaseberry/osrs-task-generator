@@ -11,8 +11,7 @@ class PointRenderer(
 ) {
 
     suspend fun renderPointsAsString(points: AssignedPoints): String =
-        """
-${itemSource(points.itemSourceId)}${points.killsForOnePoint?.let { "\n  > $it kc: 1pt" }}
+        """${itemSource(points.itemSourceId)}${points.killsForOnePoint?.let { "\n  > $it kc: 1pt" }}
 ${points.points.map { "> ${item(it.itemId)}: ${it.points.points()}" }.joinToString("\n  ", prefix = "  ")}
 """
 
