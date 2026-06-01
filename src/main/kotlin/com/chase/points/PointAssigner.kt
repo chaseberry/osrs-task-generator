@@ -16,7 +16,7 @@ class PointAssigner(
 
     ) {
 
-    suspend fun calculatePoints() {
+    suspend fun calculatePoints(): List<AssignedPoints> {
         val sources = itemSourceProvider.query(
             only = parameters.itemSourceFilter.itemSources?.whiteListValues(),
             except = parameters.itemSourceFilter.itemSources?.blackListValues(),
@@ -29,14 +29,14 @@ class PointAssigner(
         ).toList()
 
         if (sources.isEmpty() || sources.all { it.drops.isEmpty() }) {
-            return
+            return emptyList()
         }
 
         val base = sources.flatMap { it.drops }.minBy { it.dropRate }.dropRate.toDouble()
 
         val mod = parameters.killsForOnePoint?.let { base / it } ?: 1.0
 
-        val points = sources.flatMap { src ->
+        return sources.map { src ->
             val combined = parameters.combineTags?.let { tags ->
                 tags.associateWith {
                     src.drops.filter {
@@ -48,21 +48,21 @@ class PointAssigner(
                 (m * (combineDropRates(it.value) / base)).round()
             }
 
-            src.drops.mapNotNull {
-                itemProvider.get(it.itemId)?.let { item ->
-                    val typeMod = item.tags.mapNotNull { parameters.pointsModifier?.get(it) }.minOrNull()
+            AssignedPoints(
+                src.id,
+                points = src.drops.mapNotNull {
+                    itemProvider.get(it.itemId)?.let { item ->
+                        val typeMod = item.tags.mapNotNull { parameters.pointsModifier?.get(it) }.minOrNull()
 
-                    val itemMod = mod * (typeMod ?: 1.0)
+                        val itemMod = mod * (typeMod ?: 1.0)
 
-                    (item.name) to (item.tags.firstNotNullOfOrNull {
-                        combined?.get(it)
-                    } ?: (itemMod * (it.dropRate / base)).round())
-                }
-            }
-        }
-
-        points.forEach {
-            println(it)
+                        (item.id) to (item.tags.firstNotNullOfOrNull {
+                            combined?.get(it)
+                        } ?: (itemMod * (it.dropRate / base)).round())
+                    }
+                }.map { AssignedPoints.Point(it.first, it.second) },
+                parameters.killsForOnePoint,
+            )
         }
     }
 

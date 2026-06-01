@@ -8,6 +8,7 @@ import com.chase.points.parameters.PointAssignmentParameters
 import com.chase.providers.sources.InMemoryCustomTaskProvider
 import com.chase.providers.sources.InMemoryItemProvider
 import com.chase.providers.sources.InMemoryItemSourceProvider
+import com.chase.utilities.PointRenderer
 import com.chase.utilities.TaskRenderer
 import com.chase.utilities.readFile
 import kotlinx.serialization.json.Json
@@ -68,11 +69,15 @@ class OsrsTaskGenerator(
         val items = itemProvider()
         val sources = itemSourceProvider()
 
+        val r = PointRenderer(items, sources)
+
         PointAssigner(
             params,
             sources,
             items,
-        ).calculatePoints()
+        ).calculatePoints().forEach {
+            println(r.renderPointsAsString(it))
+        }
     }
 
     private suspend fun parseConfiguration(): RunConfiguration {
