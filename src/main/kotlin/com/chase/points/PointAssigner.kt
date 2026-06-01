@@ -30,13 +30,15 @@ class PointAssigner(
             return
         }
 
-        val base = sources.flatMap { it.drops }.minBy { it.dropRate }.dropRate.toByte()
+        val base = sources.flatMap { it.drops }.minBy { it.dropRate }.dropRate.toDouble()
+
+        val mod = parameters.killsForOnePoint?.let { base / it } ?: 1.0
 
         val points = sources.flatMap {
             it.drops.map {
                 val typeMod = itemProvider.get(it.itemId)?.tags?.mapNotNull { parameters.pointsModifier?.get(it) }?.minOrNull()
 
-                val itemMod = typeMod ?: 1.0
+                val itemMod = mod * (typeMod ?: 1.0)
                 (itemProvider.get(it.itemId)?.name) to (itemMod * (it.dropRate / base))
             }
         }

@@ -8,4 +8,5 @@ import kotlinx.serialization.Serializable
 class PointAssignmentParameters(
     val itemSourceFilter: ItemSourceFilter,
     val pointsModifier: Map<ItemTag, Double>? = null,
+    val killsForOnePoint: Int? = null,
 )
