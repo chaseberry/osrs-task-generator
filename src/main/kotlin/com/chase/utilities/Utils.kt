@@ -3,6 +3,7 @@ package com.chase.utilities
 import com.chase.cli.Command
 import com.chase.cli.CommandInput
 import com.chase.cli.CommandRunner
+import com.chase.models.sources.ItemDrop
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.isActive
@@ -114,4 +115,8 @@ fun String.toBoolean(): Boolean? = when (this.lowercase()) {
     "yes", "1", "true", "y" -> true
     "no", "0", "false", "n" -> false
     else -> null
+}
+
+fun combineDropRates(drops: List<ItemDrop>): Int {
+    return (1 / (drops.map { 1 / it.dropRate.toDouble() }.reduce { acc, i -> acc + i })).toInt()
 }

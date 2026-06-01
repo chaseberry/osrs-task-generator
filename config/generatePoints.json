@@ -3,13 +3,15 @@
     "itemSourceTags": {
       "type": "WhiteList",
       "values": [
-        "Slayer"
+        "DT2"
       ]
     }
   },
   "pointsModifier": {
-    "Jar": 0.25,
-    "Pet": 0.25,
-    "Cosmetic": 0.25
-  }
+      "Pet":  0.5
+  },
+  "killsForOnePoint": 50,
+  "combineTags": [
+    "VirtusArmor"
+  ]
 }

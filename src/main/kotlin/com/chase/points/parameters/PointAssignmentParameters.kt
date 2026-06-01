@@ -9,4 +9,5 @@ class PointAssignmentParameters(
     val itemSourceFilter: ItemSourceFilter,
     val pointsModifier: Map<ItemTag, Double>? = null,
     val killsForOnePoint: Int? = null,
+    val combineTags: List<ItemTag>? = null
 )

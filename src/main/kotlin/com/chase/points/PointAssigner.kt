@@ -5,7 +5,9 @@ import com.chase.models.sources.ItemSourceType
 import com.chase.points.parameters.PointAssignmentParameters
 import com.chase.providers.ItemProvider
 import com.chase.providers.ItemSourceProvider
+import com.chase.utilities.combineDropRates
 import kotlinx.coroutines.flow.toList
+import kotlin.math.roundToInt
 
 class PointAssigner(
     val parameters: PointAssignmentParameters,
@@ -34,12 +36,28 @@ class PointAssigner(
 
         val mod = parameters.killsForOnePoint?.let { base / it } ?: 1.0
 
-        val points = sources.flatMap {
-            it.drops.map {
-                val typeMod = itemProvider.get(it.itemId)?.tags?.mapNotNull { parameters.pointsModifier?.get(it) }?.minOrNull()
+        val points = sources.flatMap { src ->
+            val combined = parameters.combineTags?.let { tags ->
+                tags.associateWith {
+                    src.drops.filter {
+                        itemProvider.get(it.itemId)?.tags?.any { it in tags } ?: false
+                    }
+                }
+            }?.filter { it.value.isNotEmpty() }?.mapValues {
+                val m = parameters.pointsModifier?.get(it.key) ?: 1.0
+                (m * (combineDropRates(it.value) / base)).round()
+            }
 
-                val itemMod = mod * (typeMod ?: 1.0)
-                (itemProvider.get(it.itemId)?.name) to (itemMod * (it.dropRate / base))
+            src.drops.mapNotNull {
+                itemProvider.get(it.itemId)?.let { item ->
+                    val typeMod = item.tags.mapNotNull { parameters.pointsModifier?.get(it) }.minOrNull()
+
+                    val itemMod = mod * (typeMod ?: 1.0)
+
+                    (item.name) to (item.tags.firstNotNullOfOrNull {
+                        combined?.get(it)
+                    } ?: (itemMod * (it.dropRate / base)).round())
+                }
             }
         }
 
@@ -47,5 +65,7 @@ class PointAssigner(
             println(it)
         }
     }
+
+    private fun Double.round(): Int = ((this * 10.0).roundToInt() / 10)
 
 }

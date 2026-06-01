@@ -12,6 +12,7 @@ import com.chase.providers.ItemProvider
 import com.chase.providers.ItemSourceProvider
 import com.chase.providers.TaskProvider
 import com.chase.utilities.TaskRenderer
+import com.chase.utilities.combineDropRates
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapConcat
@@ -276,10 +277,6 @@ class Generator(
         ).map {
             it.withNewId(taskId)
         }.toList()
-    }
-
-    private fun combineDropRates(drops: List<ItemDrop>): Int {
-        return (1 / (drops.map { 1 / it.dropRate.toDouble() }.reduce { acc, i -> acc + i })).toInt()
     }
 
     private fun hoursToDropRate(rollsPerHour: Int, dropRate: Int, sourceId: Int?): Int {
