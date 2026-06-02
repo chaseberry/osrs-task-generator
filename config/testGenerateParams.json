@@ -1,21 +1,24 @@
 {
-  "numberOfGenerations": 5,
+  "numberOfGenerations": 2,
   "taskBreakdownPerGeneration": [
     "Easy",
     "Medium",
     "Hard",
     "Elite"
   ],
+  "factorTaskTimeForSlayerBosses": false,
   "defaultCompletionsPerHourModifier": 0.65,
-  "generateTaskFilter": {
-    "type": "BlackList",
-    "values": ["ObtainSpecificItemFromSpecificSource", "ObtainSpecificItem"]
+  "itemSourceFilter": {
+    "itemSourceTags": {
+      "type": "WhiteList",
+      "values": ["GodWarsDungeon"]
+    }
   },
   "uniqueTasksPerGeneration": true,
   "allUniqueTasks": true,
   "easyTaskHours": 5,
   "mediumTaskHours": 10,
-  "hardTaskHours": 20,
+  "hardTaskHours": 15,
   "itemFilters": {
     "tags": {
       "type": "BlackList",
