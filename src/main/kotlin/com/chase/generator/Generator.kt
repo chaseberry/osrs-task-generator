@@ -3,6 +3,7 @@ package com.chase.generator
 import com.chase.generator.parameters.GeneratorParameters
 import com.chase.models.items.ItemTag
 import com.chase.models.sources.ItemDrop
+import com.chase.models.sources.ItemSource
 import com.chase.models.sources.ItemSourceTag
 import com.chase.models.sources.ItemSourceType
 import com.chase.models.tasks.Task
@@ -137,7 +138,7 @@ class Generator(
             }.mapValues { it.value!! }
         }.toList().flatMap { (src, drops) ->
             drops.mapNotNull {
-                tierForHours(hoursToDropRate(src.rollsPerHour, it.key.dropRate, src.id))?.let { tier ->
+                tierForHours(hoursToDropRate(src.rollsPerHour, it.key.dropRate, src))?.let { tier ->
                     Task.ObtainSpecificItemFromSpecificSourceTask(
                         id = taskId,
                         tier = tier,
@@ -153,7 +154,7 @@ class Generator(
     private suspend fun buildObtainAnyItemFromSpecificSourceTasks(): List<Task> {
         return startingItemSources.mapNotNull { source ->
             tierForHours(
-                hoursToDropRate(source.rollsPerHour, combineDropRates(source.drops), source.id)
+                hoursToDropRate(source.rollsPerHour, combineDropRates(source.drops), source)
             )?.let {
                 Task.ObtainAnyItemFromSpecificSourceTask(
                     id = taskId,
@@ -178,7 +179,7 @@ class Generator(
                 hoursToDropRate(
                     selected.second.rollsPerHour,
                     selected.first.dropRate,
-                    selected.second.id
+                    selected.second
                 )
             )?.let { tier ->
                 Task.ObtainSpecificItemTask(
@@ -197,7 +198,7 @@ class Generator(
             val items = startingItems.filter { tag in it.tags }.map { it.id }.toList()
             // todo empty checks
 
-            if(items.isEmpty()) {
+            if (items.isEmpty()) {
                 return@mapNotNull null
             }
 
@@ -212,7 +213,7 @@ class Generator(
                     hoursToDropRate(
                         it.rollsPerHour,
                         combineDropRates(it.drops),
-                        it.id
+                        it
                     )
                 }.toList().takeIf { it.isNotEmpty() }?.min() ?: return@mapNotNull null
 
@@ -233,7 +234,7 @@ class Generator(
                 startingItemSources.filter {
                     it.type == type
                 }.map {
-                    hoursToDropRate(it.rollsPerHour, combineDropRates(it.drops), it.id)
+                    hoursToDropRate(it.rollsPerHour, combineDropRates(it.drops), it)
                 }.toList().takeIf { it.isNotEmpty() }?.min() ?: return@mapNotNull null
             )?.let { tier ->
                 Task.ObtainAnyItemFromSourceTypeTask(
@@ -252,7 +253,7 @@ class Generator(
                 startingItemSources.filter {
                     it.tags.contains(tag)
                 }.map {
-                    hoursToDropRate(it.rollsPerHour, combineDropRates(it.drops), it.id)
+                    hoursToDropRate(it.rollsPerHour, combineDropRates(it.drops), it)
                 }.toList().takeIf { it.isNotEmpty() }?.min() ?: return@mapNotNull null
             )?.let { tier ->
                 Task.ObtainAnyItemFromSourceTagTask(
@@ -279,11 +280,15 @@ class Generator(
         }.toList()
     }
 
-    private fun hoursToDropRate(rollsPerHour: Int, dropRate: Int, sourceId: Int?): Int {
-        if (parameters.factorTaskTimeForSlayerBosses) {
-            TODO("implement me please")
-        }
-        val modifier = sourceId?.let { id ->
+    private fun hoursToDropRate(rollsPerHour: Int, dropRate: Int, itemSource: ItemSource?): Int {
+        val bonusTime =
+            if (parameters.factorTaskTimeForSlayerBosses && itemSource?.tags?.contains(ItemSourceTag.Slayer) == true) {
+                1 // is 1 hour acceptable?
+            } else {
+                0
+            }
+
+        val modifier = itemSource?.id?.let { id ->
             parameters.sourceCompletionsPerHourModifier?.let {
                 it[id]
             }
