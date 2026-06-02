@@ -1,28 +1,43 @@
 {
-  "numberOfGenerations": 2,
+  "numberOfGenerations": 3,
   "taskBreakdownPerGeneration": [
     "Easy",
     "Medium",
     "Hard",
     "Elite"
   ],
-  "factorTaskTimeForSlayerBosses": false,
-  "defaultCompletionsPerHourModifier": 0.65,
-  "itemSourceFilter": {
-    "itemSourceTags": {
-      "type": "WhiteList",
-      "values": ["GodWarsDungeon"]
-    }
+  "factorTaskTimeForSlayerBosses": true,
+  "defaultCompletionsPerHourModifier": 0.75,
+  "sourceCompletionsPerHourModifier": {
+    "-4": 1.0,
+    "-5": 1.0,
+    "-6": 1.0
   },
-  "uniqueTasksPerGeneration": true,
-  "allUniqueTasks": true,
+  "uniqueTasksPerGeneration": false,
+  "allUniqueTasks": false,
+  "generateTaskFilter": {
+    "type": "BlackList",
+    "values": ["ObtainSpecificItemFromSpecificSource"]
+  },
   "easyTaskHours": 5,
   "mediumTaskHours": 10,
-  "hardTaskHours": 15,
+  "hardTaskHours": 25,
+  "eliteTaskHours": 45,
   "itemFilters": {
     "tags": {
       "type": "BlackList",
-      "values": ["Pet"]
+      "values": [
+        "Pet",
+        "Jar"
+      ]
+    },
+    "items": {
+      "type": "BlackList",
+      "values": [
+        6570,
+        21295,
+        28947
+      ]
     }
   }
 }

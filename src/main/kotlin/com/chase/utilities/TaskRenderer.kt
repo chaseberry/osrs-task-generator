@@ -21,13 +21,13 @@ class TaskRenderer(
         is Task.ObtainSpecificItemFromSpecificSourceTask -> "Obtain ${item(task.itemId)} from ${itemSource(task.itemSourceId)}"
         is Task.ObtainSpecificItemTask -> "Obtain ${item(task.itemId)}"
         is Task.ObtainXpInSkillTask -> "Obtain ${task.amount} of xp in ${task.skill}"
-    }
+    } + " (${task.expectedHouts}hrs)"
 
     private suspend fun item(id: Int) = itemProvider.get(id)?.name ?: "Unknown Item"
 
     private suspend fun itemSource(id: Int) = when (val s = itemSourceProvider.get(id)) {
         null -> "Unknown Source"
-        else -> "${s.name}${if (s.type == ItemSourceType.Monster) "s" else ""}"
+        else -> "${s.name}${if (s.type == ItemSourceType.Monster || s.type == ItemSourceType.DemiBoss) "s" else ""}"
     }
 
     private fun ItemSourceTag.display() = when (this) {

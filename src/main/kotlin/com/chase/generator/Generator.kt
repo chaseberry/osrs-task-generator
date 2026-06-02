@@ -138,10 +138,12 @@ class Generator(
             }.mapValues { it.value!! }
         }.toList().flatMap { (src, drops) ->
             drops.mapNotNull {
-                tierForHours(hoursToDropRate(src.rollsPerHour, it.key.dropRate, src))?.let { tier ->
+                val hours = hoursToDropRate(src.rollsPerHour, it.key.dropRate, src)
+                tierForHours(hours)?.let { tier ->
                     Task.ObtainSpecificItemFromSpecificSourceTask(
                         id = taskId,
                         tier = tier,
+                        expectedHouts = hours,
                         itemId = it.value.id,
                         itemSourceId = src.id
                     )
@@ -153,12 +155,13 @@ class Generator(
 
     private suspend fun buildObtainAnyItemFromSpecificSourceTasks(): List<Task> {
         return startingItemSources.mapNotNull { source ->
-            tierForHours(
-                hoursToDropRate(source.rollsPerHour, combineDropRates(source.drops), source)
-            )?.let {
+            val hours = hoursToDropRate(source.rollsPerHour, combineDropRates(source.drops), source)
+
+            tierForHours(hours)?.let {
                 Task.ObtainAnyItemFromSpecificSourceTask(
                     id = taskId,
                     tier = it,
+                    expectedHouts = hours,
                     itemSourceId = source.id
                 )
             }
@@ -167,7 +170,12 @@ class Generator(
 
     private suspend fun buildObtainSpecificItemTasks(): List<Task> {
         return startingItemSources.flatMapConcat {
-            it.drops.map { drop -> drop to it }.asFlow()
+            it.drops.filter {
+                val items = startingItems.toList().map { it.id }
+                it.itemId in items
+            }.map { drop ->
+                drop to it
+            }.asFlow()
         }.groupBy {
             it.first.itemId
         }.filter {
@@ -175,16 +183,17 @@ class Generator(
         }.mapNotNull {
             val selected = it.value.minBy { it.first.dropRate }
 
-            tierForHours(
-                hoursToDropRate(
-                    selected.second.rollsPerHour,
-                    selected.first.dropRate,
-                    selected.second
-                )
-            )?.let { tier ->
+            val hours = hoursToDropRate(
+                selected.second.rollsPerHour,
+                selected.first.dropRate,
+                selected.second
+            )
+
+            tierForHours(hours)?.let { tier ->
                 Task.ObtainSpecificItemTask(
                     id = taskId,
                     tier = tier,
+                    expectedHouts = hours,
                     itemId = it.key
                 )
             }
@@ -196,31 +205,30 @@ class Generator(
             parameters.itemFilters?.tags?.valid(it) ?: true
         }.mapNotNull { tag ->
             val items = startingItems.filter { tag in it.tags }.map { it.id }.toList()
-            // todo empty checks
 
             if (items.isEmpty()) {
                 return@mapNotNull null
             }
 
-            tierForHours(
-                startingItemSources.filter {
-                    it.drops.any { it.itemId in items }
-                }.map {
-                    it.copy(
-                        drops = it.drops.filter { it.itemId in items },
-                    )
-                }.map {
-                    hoursToDropRate(
-                        it.rollsPerHour,
-                        combineDropRates(it.drops),
-                        it
-                    )
-                }.toList().takeIf { it.isNotEmpty() }?.min() ?: return@mapNotNull null
+            val hours = startingItemSources.filter {
+                it.drops.any { it.itemId in items }
+            }.map {
+                it.copy(
+                    drops = it.drops.filter { it.itemId in items },
+                )
+            }.map {
+                hoursToDropRate(
+                    it.rollsPerHour,
+                    combineDropRates(it.drops),
+                    it
+                )
+            }.toList().takeIf { it.isNotEmpty() }?.min() ?: return@mapNotNull null
 
-            )?.let { tier ->
+            tierForHours(hours)?.let { tier ->
                 Task.ObtainItemWithTagTask(
                     id = taskId,
                     tier = tier,
+                    expectedHouts = hours,
                     tag = tag
                 )
             }
@@ -230,16 +238,17 @@ class Generator(
 
     private suspend fun buildObtainAnyItemFromSourceTypeTasks(): List<Task> {
         return ItemSourceType.entries.mapNotNull { type ->
-            tierForHours(
-                startingItemSources.filter {
-                    it.type == type
-                }.map {
-                    hoursToDropRate(it.rollsPerHour, combineDropRates(it.drops), it)
-                }.toList().takeIf { it.isNotEmpty() }?.min() ?: return@mapNotNull null
-            )?.let { tier ->
+            val hours = startingItemSources.filter {
+                it.type == type
+            }.map {
+                hoursToDropRate(it.rollsPerHour, combineDropRates(it.drops), it)
+            }.toList().takeIf { it.isNotEmpty() }?.min() ?: return@mapNotNull null
+
+            tierForHours(hours)?.let { tier ->
                 Task.ObtainAnyItemFromSourceTypeTask(
                     id = taskId,
                     tier = tier,
+                    expectedHouts = hours,
                     itemSourceType = type,
                 )
             }
@@ -249,16 +258,17 @@ class Generator(
 
     private suspend fun buildObtainAnyItemFromSourceTagTasks(): List<Task> {
         return ItemSourceTag.entries.mapNotNull { tag ->
-            tierForHours(
-                startingItemSources.filter {
-                    it.tags.contains(tag)
-                }.map {
-                    hoursToDropRate(it.rollsPerHour, combineDropRates(it.drops), it)
-                }.toList().takeIf { it.isNotEmpty() }?.min() ?: return@mapNotNull null
-            )?.let { tier ->
+            val hours = startingItemSources.filter {
+                it.tags.contains(tag)
+            }.map {
+                hoursToDropRate(it.rollsPerHour, combineDropRates(it.drops), it)
+            }.toList().takeIf { it.isNotEmpty() }?.min() ?: return@mapNotNull null
+
+            tierForHours(hours)?.let { tier ->
                 Task.ObtainAnyItemFromSourceTagTask(
                     id = taskId,
                     tier = tier,
+                    expectedHouts = hours,
                     itemSourceTag = tag,
                 )
             }
@@ -290,11 +300,11 @@ class Generator(
 
         val modifier = itemSource?.id?.let { id ->
             parameters.sourceCompletionsPerHourModifier?.let {
-                it[id]
+                it[id.toString()]
             }
         } ?: parameters.defaultCompletionsPerHourModifier
 
-        return (dropRate / (rollsPerHour * modifier)).toInt()
+        return (dropRate / (rollsPerHour * modifier)).toInt() + bonusTime
     }
 
     private fun tierForHours(hours: Int): TaskTier? = when {

@@ -14,6 +14,7 @@ class TaskBuilder : Builder<Task>("Task") {
         TaskType.ObtainSpecificItemFromSpecificSource -> ObtainSpecificItemFromSpecificSourceTask(
             id = param("id") { toIntOrNull() },
             tier = enumParam("tier", TaskTier::class),
+            expectedHouts = param("expected hours") { toIntOrNull() },
             itemId = param("itemId") { toIntOrNull() },
             itemSourceId = param("itemSourceId") { toIntOrNull() },
         )
@@ -23,10 +24,12 @@ class TaskBuilder : Builder<Task>("Task") {
         TaskType.ObtainItemWithTag -> TODO()
         TaskType.ObtainAnyItemFromSourceType -> TODO()
         TaskType.ObtainAnyItemFromSourceTag -> TODO()
-        
+
         TaskType.ObtainXpInSkill -> ObtainXpInSkillTask(
             id = param("id") { toIntOrNull() },
             tier = enumParam("tier", TaskTier::class),
+            expectedHouts = param("expected hours") { toIntOrNull() },
+
             skill = enumParam("skill", OsrsSkill::class),
             amount = param("amount") { toIntOrNull() },
         )
@@ -34,6 +37,8 @@ class TaskBuilder : Builder<Task>("Task") {
         TaskType.CompleteClueScrolls -> CompleteClueScrollsTask(
             id = param("id") { toIntOrNull() },
             tier = enumParam("tier", TaskTier::class),
+            expectedHouts = param("expected hours") { toIntOrNull() },
+
             clueType = enumParam("clue type", OsrsClueScrollTier::class),
             amount = param("amount") { toIntOrNull() },
         )
@@ -41,6 +46,7 @@ class TaskBuilder : Builder<Task>("Task") {
         TaskType.ObtainCollectionLogSlots -> ObtainCollectionLogSlotsTask(
             id = param("id") { toIntOrNull() },
             tier = enumParam("tier", TaskTier::class),
+            expectedHouts = param("expected hours") { toIntOrNull() },
             amount = param("amount") { toIntOrNull() },
             itemSourceId = param("itemSourceId") { toIntOrNull() },
             itemSourceType = enumParam("itemSourceType", ItemSourceType::class),

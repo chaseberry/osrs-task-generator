@@ -16,11 +16,13 @@ sealed class Task(
 
     abstract val tier: TaskTier
     abstract override val id: Int
+    abstract val expectedHouts: Int
 
     @SerialName("ObtainSpecificItemFromSpecificSource")
     data class ObtainSpecificItemFromSpecificSourceTask(
         override val id: Int,
         override val tier: TaskTier,
+        override val expectedHouts: Int,
         val itemId: Int,
         val itemSourceId: Int,
     ) : Task(TaskType.ObtainSpecificItemFromSpecificSource)
@@ -29,6 +31,7 @@ sealed class Task(
     data class ObtainAnyItemFromSpecificSourceTask(
         override val id: Int,
         override val tier: TaskTier,
+        override val expectedHouts: Int,
         val itemSourceId: Int,
     ) : Task(TaskType.ObtainAnyItemFromSpecificSource)
 
@@ -36,6 +39,7 @@ sealed class Task(
     data class ObtainSpecificItemTask(
         override val id: Int,
         override val tier: TaskTier,
+        override val expectedHouts: Int,
         val itemId: Int,
     ) : Task(TaskType.ObtainSpecificItem)
 
@@ -43,6 +47,7 @@ sealed class Task(
     data class ObtainItemWithTagTask(
         override val id: Int,
         override val tier: TaskTier,
+        override val expectedHouts: Int,
         val tag: ItemTag,
     ) : Task(TaskType.ObtainItemWithTag)
 
@@ -50,6 +55,7 @@ sealed class Task(
     data class ObtainAnyItemFromSourceTypeTask(
         override val id: Int,
         override val tier: TaskTier,
+        override val expectedHouts: Int,
         val itemSourceType: ItemSourceType,
     ) : Task(TaskType.ObtainAnyItemFromSourceType)
 
@@ -57,6 +63,7 @@ sealed class Task(
     data class ObtainAnyItemFromSourceTagTask(
         override val id: Int,
         override val tier: TaskTier,
+        override val expectedHouts: Int,
         val itemSourceTag: ItemSourceTag,
     ) : Task(TaskType.ObtainAnyItemFromSourceTag)
 
@@ -64,6 +71,7 @@ sealed class Task(
     data class ObtainXpInSkillTask(
         override val id: Int,
         override val tier: TaskTier,
+        override val expectedHouts: Int,
         val skill: OsrsSkill,
         val amount: Int,
     ) : Task(TaskType.ObtainXpInSkill)
@@ -72,6 +80,7 @@ sealed class Task(
     data class CompleteClueScrollsTask(
         override val id: Int,
         override val tier: TaskTier,
+        override val expectedHouts: Int,
         val clueType: OsrsClueScrollTier,
         val amount: Int,
     ) : Task(TaskType.CompleteClueScrolls)
@@ -80,6 +89,7 @@ sealed class Task(
     data class ObtainCollectionLogSlotsTask(
         override val id: Int,
         override val tier: TaskTier,
+        override val expectedHouts: Int,
         val amount: Int,
         val itemSourceId: Int?, // from a specific thing
         val itemSourceType: ItemSourceType?, // from a general category
